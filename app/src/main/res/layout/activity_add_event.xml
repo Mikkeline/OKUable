@@ -73,7 +73,7 @@
                     android:id="@+id/eventName_et"
                     android:layout_width="210dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:background="@drawable/cg_et"
                     android:ems="10"
                     android:inputType="textPersonName"
@@ -96,7 +96,7 @@
                     android:id="@+id/location_et"
                     android:layout_width="210dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:background="@drawable/cg_et"
                     android:ems="10"
                     android:inputType="textPostalAddress"
@@ -109,10 +109,10 @@
                     android:id="@+id/doneBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="80dp"
                     android:layout_marginTop="32dp"
+
                     android:text="Done"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cg_AddImage" />
 
@@ -120,7 +120,7 @@
                     android:id="@+id/description_et"
                     android:layout_width="210dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:background="@drawable/multi_et"
                     android:ems="10"
                     android:gravity="start|top"
@@ -173,7 +173,7 @@
                     android:id="@+id/startDate_tv"
                     android:layout_width="210dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:background="@drawable/cg_et"
                     android:text="        Click to Select Start Date"
                     app:layout_constraintBottom_toBottomOf="@+id/tvDate"
@@ -204,7 +204,7 @@
                     android:id="@+id/link_et"
                     android:layout_width="210dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:background="@drawable/cg_et"
                     android:ems="10"
                     android:inputType="textPersonName"
@@ -218,10 +218,20 @@
                     android:layout_width="190dp"
                     android:layout_height="120dp"
 
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     app:layout_constraintStart_toEndOf="@+id/tvBanner"
                     app:layout_constraintTop_toTopOf="@+id/tvBanner"
                     app:srcCompat="@drawable/add_image" />
+
+                <Button
+                    android:id="@+id/cancelBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="80dp"
+                    android:text="Cancel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cg_AddImage" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

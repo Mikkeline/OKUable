@@ -35,6 +35,13 @@ class AddEvent : AppCompatActivity() {
             startActivity(intent)
         }
 
+        var btnCancel  = binding.cancelBtn
+        btnCancel.setOnClickListener{
+            Toast.makeText(this, "Cancel...", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
         val eventName: EditText = findViewById(R.id.eventName_et)
         val eventLocation: EditText = findViewById(R.id.location_et)
         val done: Button = findViewById(R.id.doneBtn)
