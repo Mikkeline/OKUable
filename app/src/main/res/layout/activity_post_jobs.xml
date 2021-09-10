@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.PostJobs">
+
+        <ImageView
+            android:id="@+id/navbar"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="#60E2FF"
+            android:foregroundGravity="center"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/transparent_logo" />
+
+        <ImageButton
+            android:id="@+id/cg_btnBack"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:src="?attr/actionModeCloseDrawable"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="55dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/navbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/etPrice"
+                    android:layout_width="253dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/cg_et"
+                    android:hint="Price/per hour"
+                    android:inputType="text|numberDecimal"
+                    android:paddingLeft="5dp"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@+id/txtPrice"
+                    app:layout_constraintTop_toBottomOf="@+id/etExperience" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:id="@+id/materialDivider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="12dp"
+                    app:dividerColor="@color/grey"
+                    app:dividerThickness="2dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cg_AddImage" />
+
+                <ImageView
+                    android:id="@+id/cg_AddImage"
+                    android:layout_width="91dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/add_image" />
+
+                <TextView
+                    android:id="@+id/txtJobtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="34dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/txtjob_title"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/materialDivider2" />
+
+                <TextView
+                    android:id="@+id/txtFullName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="34dp"
+                    android:layout_marginTop="28dp"
+                    android:text="@string/txtfull_name"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtJobtitle" />
+
+                <TextView
+                    android:id="@+id/txtExperience"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="34dp"
+                    android:layout_marginTop="33dp"
+                    android:text="@string/txtexperience"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtFullName" />
+
+                <TextView
+                    android:id="@+id/txtPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="34dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Price Rate:"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtExperience" />
+
+                <TextView
+                    android:id="@+id/txtSkills"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="34dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/txtskills"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtPrice" />
+
+                <TextView
+                    android:id="@+id/txtLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="34dp"
+                    android:layout_marginTop="33dp"
+                    android:text="@string/txtlocation"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtSkills" />
+
+                <TextView
+                    android:id="@+id/txtDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="34dp"
+                    android:layout_marginTop="32dp"
+                    android:text="Description"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtQues3" />
+
+                <TextView
+                    android:id="@+id/txtServices"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="34dp"
+                    android:layout_marginTop="33dp"
+                    android:text="@string/txtservice_s"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtLocation" />
+
+                <CheckBox
+                    android:id="@+id/cb1"
+                    android:layout_width="189dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/service1"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtServices" />
+
+                <CheckBox
+                    android:id="@+id/cb2"
+                    android:layout_width="189dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/service2"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cb1" />
+
+                <CheckBox
+                    android:id="@+id/cb3"
+                    android:layout_width="189dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/service3"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cb2" />
+
+                <CheckBox
+                    android:id="@+id/cb4"
+                    android:layout_width="189dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/service4"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cb3" />
+
+                <CheckBox
+                    android:id="@+id/cb5"
+                    android:layout_width="189dp"
+                    android:layout_height="40dp"
+                    android:text="@string/service5"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/cb1"
+                    app:layout_constraintTop_toBottomOf="@+id/txtServices" />
+
+                <CheckBox
+                    android:id="@+id/cb6"
+                    android:layout_width="189dp"
+                    android:layout_height="40dp"
+                    android:text="@string/service6"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/cb2"
+                    app:layout_constraintTop_toBottomOf="@+id/cb5" />
+
+                <CheckBox
+                    android:id="@+id/cb7"
+                    android:layout_width="189dp"
+                    android:layout_height="40dp"
+                    android:text="@string/service7"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/cb3"
+                    app:layout_constraintTop_toBottomOf="@+id/cb6" />
+
+                <CheckBox
+                    android:id="@+id/cb8"
+                    android:layout_width="189dp"
+                    android:layout_height="40dp"
+                    android:text="@string/service8"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/cb4"
+                    app:layout_constraintTop_toBottomOf="@+id/cb7" />
+
+                <TextView
+                    android:id="@+id/txtSchedule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="34dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/txttime_schedule"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cb4" />
+
+                <TextView
+                    android:id="@+id/txtQues"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="34dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/txtquestion"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtSchedule" />
+
+                <TextView
+                    android:id="@+id/txtQues1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/cg_q1"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtQues" />
+
+                <TextView
+                    android:id="@+id/txtQues2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/cg_q2"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtQues1" />
+
+                <TextView
+                    android:id="@+id/txtQues3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/cg_q3"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtQues2" />
+
+                <EditText
+                    android:id="@+id/etJobtitle"
+                    android:layout_width="253dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/cg_et"
+                    android:hint="Job Title"
+                    android:paddingLeft="5dp"
+                    android:inputType="text"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@+id/txtJobtitle"
+                    app:layout_constraintTop_toBottomOf="@+id/materialDivider2" />
+
+                <EditText
+                    android:id="@+id/etFullName"
+                    android:layout_width="253dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/cg_et"
+                    android:hint="Full Name"
+                    android:paddingLeft="5dp"
+                    android:inputType="textPersonName"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@+id/txtFullName"
+                    app:layout_constraintTop_toBottomOf="@+id/etJobtitle" />
+
+                <TextView
+                    android:id="@+id/etExperience"
+                    android:layout_width="100dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="9dp"
+                    android:background="@drawable/cg_et"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@+id/btnMinus"
+                    app:layout_constraintStart_toEndOf="@+id/btnPlus"
+                    app:layout_constraintTop_toBottomOf="@+id/etFullName" />
+
+                <EditText
+                    android:id="@+id/etSkills"
+                    android:layout_width="253dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/cg_et"
+                    android:hint="Skills"
+                    android:inputType="textMultiLine"
+                    android:paddingLeft="5dp"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@+id/txtSkills"
+                    app:layout_constraintTop_toBottomOf="@+id/etPrice" />
+
+                <Button
+                    android:id="@+id/btnPlus"
+                    android:layout_width="50dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="31dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/cg_et"
+                    android:padding="0dp"
+                    android:text="+"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:backgroundTint="@color/caregiver_et"
+                    app:layout_constraintStart_toEndOf="@+id/txtExperience"
+                    app:layout_constraintTop_toBottomOf="@+id/etFullName" />
+
+                <Button
+                    android:id="@+id/btnMinus"
+                    android:layout_width="50dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/cg_et"
+                    android:padding="0dp"
+                    android:text="-"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:backgroundTint="@color/caregiver_et"
+                    app:layout_constraintStart_toEndOf="@+id/etExperience"
+                    app:layout_constraintTop_toBottomOf="@+id/etFullName" />
+
+                <Spinner
+                    android:id="@+id/spLocation"
+                    android:layout_width="253dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/cg_et"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@+id/txtLocation"
+                    app:layout_constraintTop_toBottomOf="@+id/etSkills" />
+
+                <EditText
+                    android:id="@+id/etDesc"
+                    android:layout_width="253dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/cg_et"
+                    android:hint="Short brief description"
+                    android:inputType="textMultiLine"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@+id/txtDesc"
+                    app:layout_constraintTop_toBottomOf="@+id/spinner_q3" />
+
+                <TextView
+                    android:id="@+id/txtMaximumTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/txtmaximum_duration"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/txtSchedule"
+                    app:layout_constraintTop_toBottomOf="@+id/cb4" />
+
+                <TextView
+                    android:id="@+id/txtMax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/txthours"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/etMax"
+                    app:layout_constraintTop_toBottomOf="@+id/cb4" />
+
+                <TextView
+                    android:id="@+id/txtMin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/txthours"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/etMin"
+                    app:layout_constraintTop_toBottomOf="@+id/txtMax" />
+
+                <TextView
+                    android:id="@+id/txtMinimumTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/txtminimum_duration"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/txtSchedule"
+                    app:layout_constraintTop_toBottomOf="@+id/txtMaximumTime" />
+
+                <EditText
+                    android:id="@+id/etMax"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/cg_et"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/txtMaximumTime"
+                    app:layout_constraintTop_toBottomOf="@+id/cb4"
+                    tools:ignore="MissingConstraints" />
+
+                <Spinner
+                    android:id="@+id/spinner_q1"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="136dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/cg_et"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txtQues1"
+                    app:layout_constraintTop_toBottomOf="@+id/txtQues" />
+
+                <Spinner
+                    android:id="@+id/spinner_q2"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="40dp"
+                    android:background="@drawable/cg_et"
+                    android:inputType="number"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/txtQues2"
+                    app:layout_constraintTop_toBottomOf="@+id/spinner_q1"
+                    tools:ignore="MissingConstraints" />
+
+                <Spinner
+                    android:id="@+id/spinner_q3"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="40dp"
+                    android:background="@drawable/cg_et"
+                    android:inputType="number"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/txtQues3"
+                    app:layout_constraintTop_toBottomOf="@+id/spinner_q2" />
+
+                <EditText
+                    android:id="@+id/etMin"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/cg_et"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/txtMinimumTime"
+                    app:layout_constraintTop_toBottomOf="@+id/etMax" />
+
+
+                <Button
+                    android:id="@+id/cg_btnSubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35sp"
+                    android:layout_marginStart="71dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="32dp"
+                    android:background="@drawable/cg_btnsubmit"
+                    android:padding="0dp"
+                    android:text="@string/btnsubmit"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/cg_btnsubmit"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtDesc" />
+
+                <Button
+                    android:id="@+id/cg_btnCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35sp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="83dp"
+                    android:layout_marginBottom="32dp"
+                    android:background="@drawable/cg_btnsubmit"
+                    android:padding="0dp"
+                    android:text="@string/btncancel"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/grey"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etDesc" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

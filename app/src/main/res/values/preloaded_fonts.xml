@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/caudex_bold</item>
+        <item>@font/jaldi_bold</item>
+        <item>@font/marcellus</item>
+        <item>@font/slabo_13px</item>
+    </array>
+</resources>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "321558479948",
+    "firebase_url": "https://okuable-mad-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "okuable-mad",
+    "storage_bucket": "okuable-mad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321558479948:android:aa055518a49948c0fc60e9",
+        "android_client_info": {
+          "package_name": "com.madassignment.okuable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321558479948-ls97atf0qe0rfnohvbm129ebvvollq6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDX1DI-0ezEqTnYY5E5QbF5vlJWnIh4VgA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321558479948-ls97atf0qe0rfnohvbm129ebvvollq6i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

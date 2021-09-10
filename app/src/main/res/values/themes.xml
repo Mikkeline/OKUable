@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.OKUable" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/BUE</item>
+        <item name="colorPrimaryVariant">@android:color/holo_blue_light</item>
+        <item name="colorOnPrimary">@color/BUE</item>
+        <!-- Customize your theme here. -->
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/BUE</item>
+    </style>
+</resources>

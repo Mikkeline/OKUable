@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:forceDarkAllowed="false"
+        tools:context=".fragment.CaregiverFragment_User"
+        tools:targetApi="q">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/searchView"
+        android:layout_width="300dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:hint="Search by Job title, Name or Price."
+        android:background="@drawable/et_search_border"
+        android:paddingStart="5dp"
+        android:textSize="15dp"
+        android:textColor="@color/grey"
+        android:inputType="textShortMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_caregiver"
+        android:layout_width="180dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/marcellus"
+        android:text="Hire professional  local caregivers"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
+    <TextView
+        android:id="@+id/txt_Location"
+        android:layout_width="75dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="35dp"
+        android:fontFamily="@font/jaldi_bold"
+        android:text="Search Nearest"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_caregiver"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Location" />
+
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/materialDivider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        app:dividerColor="@color/grey"
+        app:dividerThickness="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_caregiver" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/caregiver_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="50dp"
+            android:foregroundGravity="center"
+            android:orientation="vertical"
+            app:layoutManager="LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/materialDivider"
+            app:layout_constraintTop_toBottomOf="@+id/materialDivider" />
+
+
+        <ImageButton
+            android:id="@+id/btn_Location"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="12dp"
+            android:background="@android:drawable/screen_background_light_transparent"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toEndOf="@+id/txt_caregiver"
+            app:layout_constraintTop_toBottomOf="@+id/searchView"
+            app:srcCompat="@drawable/location_icon" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

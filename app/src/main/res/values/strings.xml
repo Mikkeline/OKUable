@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">OKUable</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cg_q1">Are you comfortable with pets?</string>
+    <string name="cg_q2">Are you willing to travel to Careseeker\'s destination?</string>
+    <string name="cg_q3">Are you okay if a job runs later than planned?</string>
+    <string name="tv_jobtitle">Job Title</string>
+    <string name="tv_fullname">Full Name</string>
+    <string name="txtexperience">Experience :</string>
+    <string name="txtskills">Skills :</string>
+    <string name="txtlocation">Location :</string>
+    <string name="txtservice_s">Service(s) Provided :</string>
+    <string name="txttime_schedule">Time Schedule :</string>
+    <string name="txtquestion">Question :</string>
+    <string name="txtcontact_information">Contact Information</string>
+    <string name="txtcontact_number">Contact Number :</string>
+    <string name="txtemail_address">Email Address :</string>
+    <string name="txtjob_title">Job Title :</string>
+    <string name="txtfull_name">Full Name :</string>
+    <string name="service1">Medication oral and injections</string>
+    <string name="service2">Patient\'s Activities of Daily Living (ADL)</string>
+    <string name="service3">Bathing And Grooming</string>
+    <string name="service4">Medical Escorts</string>
+    <string name="service5">Meal Arrangements And Companionship</string>
+    <string name="service6">Toileting And Personal Hygiene Care</string>
+    <string name="service7">Ryle\'s Tube Feeding/Changing</string>
+    <string name="service8">Travel with client (follow up)</string>
+    <string name="txtmaximum_duration">Maximum duration</string>
+    <string name="txthours">hours</string>
+    <string name="txtminimum_duration">Minimum duration</string>
+    <string name="btnsubmit">Submit</string>
+    <string name="btncancel">Cancel</string>
+    <string name="search">Search</string>
+    <string name="cg_Line">Hire professional local caregivers</string>
+    <string name="search_nearest">Search Nearest</string>
+    <string name="add_job">Add Job</string>
+    <string name="description">Description</string>
+    <string name="cg_tvdesc">Description:</string>
+    <string name="q3">q3</string>
+    <string name="q2">q2</string>
+    <string name="q1">q1</string>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/ic_event"
+        android:icon="@drawable/event_icon"
+        android:title="Event"/>
+
+    <item android:id="@+id/ic_caregiver"
+        android:icon="@drawable/caregive_icon"
+        android:title="Caregiver"/>
+
+    <item android:id="@+id/ic_profile"
+        android:icon="@drawable/profile_icon"
+        android:title="Profile"/>
+
+    <item android:id="@+id/ic_logout"
+        android:icon="@drawable/logout_icon"
+        android:title="Logout"/>
+
+</menu>
