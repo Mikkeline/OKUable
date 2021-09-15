@@ -15,14 +15,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity
-            android:name=".activity.test"
-            android:exported="true" >
+        <activity android:name=".activity.CarereceiverLogin" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter></activity>
+        <activity android:name=".activity.CarereceiverRegister" />
+        <activity
+            android:name=".activity.test">
+
         </activity>
         <activity
             android:name=".activity.MainActivity3"
@@ -41,12 +43,11 @@
             android:exported="true" />
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true">
-
-        </activity>
-        <activity android:name=".activity.Comments"></activity>
+            android:exported="true" />
+        <activity android:name=".activity.Comments" />
         <activity android:name=".activity.EventDetails" />
         <activity android:name=".activity.AddEvent" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

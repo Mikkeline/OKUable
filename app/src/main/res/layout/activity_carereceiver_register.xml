@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BUE"
+    tools:context=".activity.CarereceiverRegister">
+
+    <EditText
+        android:id="@+id/username_edittext_receiver_reg"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_edittext_reg_login"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:paddingLeft="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup1" />
+
+    <EditText
+        android:id="@+id/email_edittext_receiver_reg"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_edittext_reg_login"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/username_edittext_receiver_reg"
+        app:layout_constraintStart_toStartOf="@+id/username_edittext_receiver_reg"
+        app:layout_constraintTop_toBottomOf="@+id/username_edittext_receiver_reg" />
+
+    <EditText
+        android:id="@+id/password_edittext_receiver_reg"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_edittext_reg_login"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingLeft="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/email_edittext_receiver_reg"
+        app:layout_constraintStart_toStartOf="@+id/email_edittext_receiver_reg"
+        app:layout_constraintTop_toBottomOf="@+id/email_edittext_receiver_reg" />
+
+    <Button
+        android:id="@+id/btnRegister_receiver"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/cg_btnsubmit"
+        android:text="Register"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/password_edittext_receiver_reg"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/password_edittext_receiver_reg"
+        app:layout_constraintTop_toBottomOf="@+id/password_edittext_receiver_reg" />
+
+    <TextView
+        android:id="@+id/tvHaveaccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Already have an account?"
+        android:textColor="@color/cg_btnsubmit"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/btnRegister_receiver"
+        app:layout_constraintStart_toStartOf="@+id/btnRegister_receiver"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister_receiver" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spicy_rice"
+            android:text="Signing Up As:"
+            android:textColor="@color/black"
+            android:textSize="34sp" />
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:fontFamily="@font/roboto_medium"
+            android:minHeight="48dp"
+            android:text="Care Receiver"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:buttonTint="@color/white" />
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:minHeight="48dp"
+            android:text="Care Giver"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:buttonTint="@color/white" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:minHeight="48dp"
+            android:text="Admin"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:buttonTint="@color/white" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvUserType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="invisible" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
