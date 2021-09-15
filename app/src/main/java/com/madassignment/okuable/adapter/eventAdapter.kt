@@ -9,24 +9,22 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.madassignment.okuable.R
-import com.madassignment.okuable.activity.CaregiverDetails
 import com.madassignment.okuable.activity.EventDetails
-
 import com.madassignment.okuable.data.Event
-import com.madassignment.okuable.fragment.CaregiverFragment_Public
+import com.madassignment.okuable.fragment.EventFragment_Organiser
+
 
 class eventAdapter (
-    val context: Context,
-    private val events: List<Event>
+    var context: Context,
+    private var events: ArrayList<Event>
+
+
 ) :
     RecyclerView.Adapter<eventAdapter.ViewHolder>() {
 
-    private var firestore: FirebaseFirestore? = null
-    private var reference: DatabaseReference? = null
-    private var currentUserId: String? = null
+
 
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -41,9 +39,9 @@ class eventAdapter (
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.event_item_row, parent,false)
+        val itemView = LayoutInflater.from(context).inflate(R.layout.event_item_row, parent,false)
 
-        //firestore = FirebaseFirestore.getInstance()
+
         //user = FirebaseAuth.getInstance().currentUser
         //reference = FirebaseDatabase.getInstance().getReference("Users")
         // currentUserId = "5bJBTRI8QHM0YH0bwVdumSqsR5H3"//carereceiver
@@ -61,7 +59,7 @@ class eventAdapter (
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
 
         val currentPosition = events[i]
-        val context = CaregiverFragment_Public.appContext
+        val context = EventFragment_Organiser.appContext
         viewHolder.eventName.text = currentPosition.name
         viewHolder.endDate.text = currentPosition.endDate
         viewHolder.startDate.text = currentPosition.startDate
@@ -77,21 +75,29 @@ class eventAdapter (
             val eventName = viewHolder.eventName.text
 
 
-        //pass the eventName to eventDetails class
+            //pass the eventName to eventDetails class
             val intent = Intent(context, EventDetails::class.java)
             intent.putExtra("EventName", eventName)
             context.startActivity(intent)
 
 
         }
+
+
     }
 
 
-    override fun getItemCount(): Int {
+
+
+
+        override fun getItemCount(): Int {
         return events.size
     }
 
-
+    fun filterList(filtered: ArrayList<Event>) {
+        this.events = filtered
+        notifyDataSetChanged()
+    }
 
 
 }

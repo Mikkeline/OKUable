@@ -81,6 +81,20 @@ class EventDetails : AppCompatActivity() {
                 }
             }
             )
+
+
+        //comment counts
+
+
+        db.collection("Event")
+            .document(eventName)
+            .collection("comment")
+            .get().addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val size = task.result!!.size()
+                binding.commentCount.text = size.toString()
+                }
+            }
     }
 }
 

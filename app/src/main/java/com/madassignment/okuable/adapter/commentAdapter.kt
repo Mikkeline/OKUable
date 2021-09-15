@@ -12,13 +12,12 @@ import com.bumptech.glide.Glide
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.madassignment.okuable.R
-import com.madassignment.okuable.activity.EventDetails
 import com.madassignment.okuable.data.Comment
-import com.madassignment.okuable.fragment.CaregiverFragment_Public
+import com.madassignment.okuable.fragment.EventFragment_Organiser.Companion.appContext
 
 class commentAdapter (
     val context: Context,
-    private val comments: List<Comment>
+    private var comments: List<Comment>
     ) :
     RecyclerView.Adapter<commentAdapter.ViewHolder>() {
 
@@ -59,7 +58,7 @@ class commentAdapter (
         override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
 
             val currentPosition = comments[i]
-            val context = CaregiverFragment_Public.appContext
+            val context = appContext
             viewHolder.userName.text = currentPosition.username
             viewHolder.date.text = currentPosition.timeStamp?.toString()
             viewHolder.comment.text = currentPosition.comment

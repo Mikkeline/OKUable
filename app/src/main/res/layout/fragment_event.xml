@@ -6,18 +6,17 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-    tools:context="com.madassignment.okuable.fragment.EventFragment_User"
- >
+        tools:context="com.madassignment.okuable.fragment.EventFragment_User">
 
         <EditText
-            android:id="@+id/et_SearchCaregiver"
+            android:id="@+id/et_Search"
             android:layout_width="286dp"
             android:layout_height="39dp"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/et_search_border"
-            android:hint="Search"
-            app:layout_constraintEnd_toStartOf="@+id/btn_Search"
+            android:hint="Search by event's name or place"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,7 +36,7 @@
             app:layout_constraintBottom_toTopOf="@+id/materialDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_SearchCaregiver" />
+            app:layout_constraintTop_toBottomOf="@+id/et_Search" />
 
 
         <com.google.android.material.divider.MaterialDivider
@@ -55,9 +54,9 @@
             android:layout_width="match_parent"
             android:layout_height="520dp"
             android:layout_marginStart="8dp"
-            android:layout_marginBottom="50dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="50dp"
             android:scrollbarSize="5dp"
             android:scrollbars="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -76,21 +75,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/materialDivider" />
 
         </ScrollView>
-
-        <ImageButton
-            android:id="@+id/btn_Search"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="18dp"
-            android:background="@android:drawable/screen_background_light_transparent"
-            android:scaleType="fitCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/et_SearchCaregiver"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/search_icon" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

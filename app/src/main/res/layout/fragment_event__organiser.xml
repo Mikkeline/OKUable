@@ -6,17 +6,17 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-    tools:context=".fragment.EventFragment_Organiser">
+        tools:context=".fragment.EventFragment_Organiser">
 
         <EditText
-            android:id="@+id/et_SearchCaregiver"
+            android:id="@+id/et_Search"
             android:layout_width="286dp"
             android:layout_height="39dp"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/et_search_border"
-            android:hint="Search"
-            app:layout_constraintEnd_toStartOf="@+id/btn_Search"
+            android:hint="Search by event's name or place"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,7 +36,7 @@
             app:layout_constraintBottom_toTopOf="@+id/materialDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_SearchCaregiver" />
+            app:layout_constraintTop_toBottomOf="@+id/et_Search" />
 
         <TextView
             android:id="@+id/txt_AddEvent"
@@ -70,9 +70,9 @@
             android:layout_width="match_parent"
             android:layout_height="520dp"
             android:layout_marginStart="8dp"
-            android:layout_marginBottom="50dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="50dp"
             android:scrollbarSize="5dp"
             android:scrollbars="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -93,29 +93,15 @@
         </ScrollView>
 
         <ImageButton
-            android:id="@+id/btn_Search"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="18dp"
-            android:background="@android:drawable/screen_background_light_transparent"
-            android:scaleType="fitCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/et_SearchCaregiver"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/search_icon" />
-
-        <ImageButton
             android:id="@+id/btn_AddEvent"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="40dp"
             android:background="@android:drawable/screen_background_light_transparent"
             android:scaleType="fitCenter"
-            app:layout_constraintEnd_toEndOf="@+id/btn_Search"
-            app:layout_constraintStart_toStartOf="@+id/btn_Search"
-            app:layout_constraintTop_toBottomOf="@+id/btn_Search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_Search"
             app:srcCompat="@drawable/addevent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
