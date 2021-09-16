@@ -100,7 +100,10 @@ class CarereceiverRegister : AppCompatActivity() {
                         .addOnCompleteListener(
                             OnCompleteListener<AuthResult> { task ->
                                 if (task.isSuccessful) {
-                                    val firebaseUser: FirebaseUser = task.result!!.user!!
+
+                                    val intent = Intent(this, Profile::class.java)
+                                    startActivity(intent)
+                                   val firebaseUser: FirebaseUser = task.result!!.user!!
 
                                     val user = mAuth.currentUser
                                     val uid = user!!.uid
@@ -119,7 +122,7 @@ class CarereceiverRegister : AppCompatActivity() {
                                         Toast.LENGTH_SHORT
                                     ).show()
 
-
+                                        /*
 
                                     if (userType == "Care Receiver"){
                                         val intent = Intent(
@@ -154,7 +157,7 @@ class CarereceiverRegister : AppCompatActivity() {
                                         intent.putExtra("receiverEmail_id", receiverEmail)
                                         startActivity(intent)
                                     }
-
+*/
 
                                 } else {
                                     Toast.makeText(

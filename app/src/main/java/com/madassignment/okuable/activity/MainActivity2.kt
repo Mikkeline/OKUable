@@ -3,6 +3,7 @@ package com.madassignment.okuable.activity
 import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
@@ -81,6 +82,17 @@ class MainActivity2 : AppCompatActivity() {
                 }
                 R.id.ic_profile -> {
                     replaceFragment(profileFragment)
+                }
+                R.id.ic_logout -> {
+                    auth.signOut()
+                    Toast.makeText(
+                        this@MainActivity2,
+                        "Good Bye Care Receiver!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    val intent = Intent(this, CarereceiverLogin::class.java)
+                    startActivity(intent)
+                    finish()
                 }
             }
             true

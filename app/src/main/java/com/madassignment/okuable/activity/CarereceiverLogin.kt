@@ -19,11 +19,12 @@ import kotlinx.android.synthetic.main.activity_carereceiver_register.*
 class CarereceiverLogin : AppCompatActivity() {
 
     lateinit var mDatabase: DatabaseReference
-    var user = FirebaseAuth.getInstance().currentUser
+   // var user = FirebaseAuth.getInstance().currentUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_carereceiver_login)
+
 
 
         val backRegister: TextView = findViewById(R.id.tvBackreg)
@@ -66,6 +67,7 @@ class CarereceiverLogin : AppCompatActivity() {
                         .signInWithEmailAndPassword(receiverEmail, receiverPassword)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
+                                val user = FirebaseAuth.getInstance().currentUser
 
                                 val uid = user!!.uid
                                 val firebaseUser: FirebaseUser = task.result!!.user!!

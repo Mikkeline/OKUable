@@ -58,12 +58,7 @@ class Comments : AppCompatActivity() {
 
 
             ////Get USERNAME from realtime database
-            val user = FirebaseAuth.getInstance().currentUser
-            val database = Firebase.database
-            val ref = database.reference.child("Users")
-            val currentUserId = user?.uid
-
-
+            
 
             val uidref= FirebaseAuth.getInstance().currentUser?.uid
             FirebaseDatabase.getInstance().reference.child("Users/$uidref")

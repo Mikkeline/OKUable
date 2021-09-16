@@ -139,27 +139,27 @@ class AddEvent : AppCompatActivity() {
         }
 
             if(name.isEmpty()){
-                Toast.makeText(this, "Please enter your Event's Name!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Please enter your Event's Name!", Toast.LENGTH_SHORT).show()
             }
 
             if(location.isEmpty()){
-                Toast.makeText(this, "Please enter your Event's Location!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Please enter your Event's Location!", Toast.LENGTH_SHORT).show()
             }
 
             if(description.isEmpty()){
-                Toast.makeText(this, "Please enter your Event's Description!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Please enter your Event's Description!", Toast.LENGTH_SHORT).show()
             }
 
             if(startDate.isEmpty()){
-                Toast.makeText(this, "Please enter your Event's Start Date!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Please enter your Event's Start Date!", Toast.LENGTH_SHORT).show()
             }
 
             if(endDate.isEmpty()){
-                Toast.makeText(this, "Please enter your Event's End Date!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Please enter your Event's End Date!", Toast.LENGTH_SHORT).show()
             }
 
             if(link.isEmpty()){
-                Toast.makeText(this, "Please enter your Event's Link!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Please enter your Event's Link!", Toast.LENGTH_SHORT).show()
             }
 
 
