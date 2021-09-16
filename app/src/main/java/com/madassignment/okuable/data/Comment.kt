@@ -8,6 +8,5 @@ data class Comment(
     var comment: String = "",
     var timeStamp: Date? = null,
     var username: String = "",
-
     var dlUrl: String = ""
 )

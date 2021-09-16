@@ -1,8 +1,10 @@
 package com.madassignment.okuable.activity
 
+import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +23,7 @@ import com.madassignment.okuable.adapter.commentAdapter
 import com.madassignment.okuable.data.CaregiverList
 import com.madassignment.okuable.data.Comment
 import com.madassignment.okuable.databinding.ActivityCommentsBinding
+import com.madassignment.okuable.fragment.CaregiverFragment_Public
 import java.util.*
 import kotlin.collections.HashMap
 
@@ -68,8 +71,8 @@ class Comments : AppCompatActivity() {
 
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
 
-                        val value = dataSnapshot.child("username").getValue(String::class.java)
-
+                        val name = dataSnapshot.child("username").getValue(String::class.java)
+                        val image = dataSnapshot.child("img").getValue(String::class.java)
 
 
 
@@ -90,8 +93,12 @@ class Comments : AppCompatActivity() {
                             val data = HashMap<String, Any>()
                             data.put("comment", commentTxt)
                             data.put("timeStamp", FieldValue.serverTimestamp())
-                            if (value != null) {
-                                data.put("username" , value)
+
+                            if (name != null) {
+                                data.put("username" , name)
+                            }
+                            if (image != null) {
+                                data.put("dlUrl" , image)
                             }
 
 

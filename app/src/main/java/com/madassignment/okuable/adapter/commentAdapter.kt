@@ -17,7 +17,7 @@ import com.madassignment.okuable.fragment.EventFragment_Organiser.Companion.appC
 
 class commentAdapter (
     val context: Context,
-    private var comments: List<Comment>
+    private var comments: ArrayList<Comment>
     ) :
     RecyclerView.Adapter<commentAdapter.ViewHolder>() {
 
@@ -58,7 +58,7 @@ class commentAdapter (
         override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
 
             val currentPosition = comments[i]
-            val context = appContext
+
             viewHolder.userName.text = currentPosition.username
             viewHolder.date.text = currentPosition.timeStamp?.toString()
             viewHolder.comment.text = currentPosition.comment
