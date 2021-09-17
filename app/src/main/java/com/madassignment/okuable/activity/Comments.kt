@@ -60,9 +60,7 @@ class Comments : AppCompatActivity() {
 
 
 
-            ////Get USERNAME from realtime database
-            
-
+            ////Get USERNAME and IMAGE from realtime database
             val uidref= FirebaseAuth.getInstance().currentUser?.uid
             FirebaseDatabase.getInstance().reference.child("Users/$uidref")
                 .addListenerForSingleValueEvent(object : ValueEventListener {
@@ -72,7 +70,7 @@ class Comments : AppCompatActivity() {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                         val name = dataSnapshot.child("username").getValue(String::class.java)
-                        val image = dataSnapshot.child("img").getValue(String::class.java)
+                        val image = dataSnapshot.child("image").getValue(String::class.java)
 
 
 
@@ -89,7 +87,7 @@ class Comments : AppCompatActivity() {
 
 
 
-                         //upload to firestore
+                         //upload to username,dlUrl,comment & time to firestore
                             val data = HashMap<String, Any>()
                             data.put("comment", commentTxt)
                             data.put("timeStamp", FieldValue.serverTimestamp())
@@ -167,10 +165,6 @@ class Comments : AppCompatActivity() {
 
 
         val db = FirebaseFirestore.getInstance()
-
-
-
-
         db.collection("Event").document(eventName).collection("comment").get()
 
 

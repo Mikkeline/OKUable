@@ -6,10 +6,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".activity.CaregiverDetails">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+    tools:context=".activity.DeleteCaregiverJob">
+
     <ImageView
         android:id="@+id/navbar"
         android:layout_width="match_parent"
@@ -389,12 +390,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="50dp"
         android:fontFamily="@font/marcellus"
         android:text="@string/txtemail_address"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cg_tvContactNumber" />
 
@@ -494,6 +493,22 @@
         app:layout_constraintStart_toEndOf="@+id/cg_Time2"
         app:layout_constraintTop_toBottomOf="@+id/cg_Time" />
 
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/cg_btndelete"
+        android:text="Delete Jobs"
+        android:textStyle="bold"
+        android:textColor="@color/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cg_Email"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-</layout>
+    </layout>

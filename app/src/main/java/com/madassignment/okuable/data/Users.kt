@@ -1,11 +1,9 @@
-package com.okuable.okuable.data
+package com.madassignment.okuable.data
 
 data class Users(
+    var name : String ?= null,
+    var phoneNum : String ?= null,
+    var address : String ?= null
 
-    val uid:String = "",
-    val userType: String= "",
-    var name : String = "",
-    var phoneNum : String = "",
-    var address : String =""
 
 )

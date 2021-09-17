@@ -37,7 +37,7 @@ class NearestCaregiver : AppCompatActivity() {
         mAdapter = CaregiverAdapter(this, cgList)
 
         val intent = intent
-        val location: String = intent.getStringExtra("location").toString()
+        val location: String = intent.getStringExtra("loc").toString()
 
         //mAdapter.notifyDataSetChanged()
         rvCaregiver.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -78,7 +78,7 @@ class NearestCaregiver : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-
+                Toast.makeText(this@NearestCaregiver, "COULD NOT FIND CAREGIVER IN THE AREA!",Toast.LENGTH_LONG).show()
             }
         })
     }

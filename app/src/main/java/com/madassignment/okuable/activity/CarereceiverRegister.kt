@@ -103,7 +103,7 @@ class CarereceiverRegister : AppCompatActivity() {
 
                                     val intent = Intent(this, Profile::class.java)
                                     startActivity(intent)
-                                   val firebaseUser: FirebaseUser = task.result!!.user!!
+                                    val firebaseUser: FirebaseUser = task.result!!.user!!
 
                                     val user = mAuth.currentUser
                                     val uid = user!!.uid
@@ -122,41 +122,41 @@ class CarereceiverRegister : AppCompatActivity() {
                                         Toast.LENGTH_SHORT
                                     ).show()
 
-                                        /*
+                                    /*
 
-                                    if (userType == "Care Receiver"){
-                                        val intent = Intent(
-                                            this@CarereceiverRegister,
-                                            MainActivity2::class.java
-                                        )
-                                        intent.flags =
-                                            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                        intent.putExtra("user_id", firebaseUser.uid)
-                                        intent.putExtra("receiverEmail_id", receiverEmail)
-                                        startActivity(intent)
-                                    }
-                                    else if (userType == "Care Giver"){
-                                        val intent = Intent(
-                                            this@CarereceiverRegister,
-                                            MainActivity::class.java
-                                        )
-                                        intent.flags =
-                                            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                        intent.putExtra("user_id", firebaseUser.uid)
-                                        intent.putExtra("receiverEmail_id", receiverEmail)
-                                        startActivity(intent)
-                                    }
-                                    else if (userType == "Admin"){
-                                        val intent = Intent(
-                                            this@CarereceiverRegister,
-                                            MainActivity3::class.java
-                                        )
-                                        intent.flags =
-                                            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                        intent.putExtra("user_id", firebaseUser.uid)
-                                        intent.putExtra("receiverEmail_id", receiverEmail)
-                                        startActivity(intent)
-                                    }
+                                if (userType == "Care Receiver"){
+                                    val intent = Intent(
+                                        this@CarereceiverRegister,
+                                        MainActivity2::class.java
+                                    )
+                                    intent.flags =
+                                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                    intent.putExtra("user_id", firebaseUser.uid)
+                                    intent.putExtra("receiverEmail_id", receiverEmail)
+                                    startActivity(intent)
+                                }
+                                else if (userType == "Care Giver"){
+                                    val intent = Intent(
+                                        this@CarereceiverRegister,
+                                        MainActivity::class.java
+                                    )
+                                    intent.flags =
+                                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                    intent.putExtra("user_id", firebaseUser.uid)
+                                    intent.putExtra("receiverEmail_id", receiverEmail)
+                                    startActivity(intent)
+                                }
+                                else if (userType == "Admin"){
+                                    val intent = Intent(
+                                        this@CarereceiverRegister,
+                                        MainActivity3::class.java
+                                    )
+                                    intent.flags =
+                                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                    intent.putExtra("user_id", firebaseUser.uid)
+                                    intent.putExtra("receiverEmail_id", receiverEmail)
+                                    startActivity(intent)
+                                }
 */
 
                                 } else {

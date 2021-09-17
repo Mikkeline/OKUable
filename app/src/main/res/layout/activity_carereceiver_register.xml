@@ -7,6 +7,8 @@
     android:background="@color/BUE"
     tools:context=".activity.CarereceiverRegister">
 
+
+
     <EditText
         android:id="@+id/username_edittext_receiver_reg"
         android:layout_width="0dp"

@@ -1,5 +1,6 @@
 package com.madassignment.okuable.fragment
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -48,7 +50,6 @@ class CaregiverFragment_User : Fragment() {
         rvCaregivers.layoutManager = llm
         rvCaregivers.setHasFixedSize(true)
         rvCaregivers.invalidate()
-
 
         /**getData firebase*/
         val database = Firebase.database
@@ -93,9 +94,72 @@ class CaregiverFragment_User : Fragment() {
         })
 
         binding.btnLocation.setOnClickListener {
-            val intent = Intent(activity, NearestCaregiver::class.java)
-            intent.putExtra("location", "Selangor")
-            startActivity(intent)
+            val builder = AlertDialog.Builder(context)
+
+            var str = ""
+            // dialog title
+            builder.setTitle("Choose a Location. ")
+
+            val state = arrayOf(
+                "Kuala Lumpur",
+                "Labuan",
+                "Putrajaya",
+                "Johor",
+                "Kedah",
+                "Kelantan",
+                "Malacca",
+                "Negeri Sembilan",
+                "Pahang",
+                "Penang",
+                "Perak",
+                "Perlis",
+                "Sabah",
+                "Sarawak",
+                "Selangor",
+                "Terengganu"
+            )
+
+            // set single choice items
+            builder.setSingleChoiceItems(
+                state, // array
+                -1 // initial selection (-1 none)
+            ){dialog, i ->}
+
+
+            // alert dialog positive button
+            builder.setPositiveButton("Okay"){dialog,which->
+                val position = (dialog as AlertDialog).listView.checkedItemPosition
+                // if selected, then get item text
+                if (position !=-1){
+                    val selectedItem = state[position]
+                    str = selectedItem
+                    val intent = Intent(activity, NearestCaregiver::class.java)
+                    intent.putExtra("loc", str)
+                    startActivity(intent)
+                }
+            }
+
+            // alert dialog other buttons
+            builder.setNeutralButton("Cancel",null)
+
+            // set dialog non cancelable
+            builder.setCancelable(false)
+
+            // finally, create the alert dialog and show it
+            val dialog = builder.create()
+            dialog.show()
+
+            // initially disable the positive button
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = false
+
+            // dialog list item click listener
+            dialog.listView.onItemClickListener =
+                AdapterView.OnItemClickListener { parent, view, position, id ->
+                    // enable positive button when user select an item
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+                        .isEnabled = position != -1
+
+                }
         }
 
         return binding.root
@@ -108,8 +172,8 @@ class CaregiverFragment_User : Fragment() {
         cgList.filterTo(filteredNames) {
             //if the existing elements contains the search input
             it.name.lowercase().contains(text.lowercase())||
-            it.jobtitle.lowercase().contains(text.lowercase())||
-            it.pricerate.lowercase().contains(text.lowercase())
+                    it.jobtitle.lowercase().contains(text.lowercase())||
+                    it.pricerate.lowercase().contains(text.lowercase())
         }
         //calling a method of the adapter class and passing the filtered list
         mAdapter!!.filterList(filteredNames)

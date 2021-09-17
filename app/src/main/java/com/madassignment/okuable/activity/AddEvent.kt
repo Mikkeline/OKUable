@@ -9,6 +9,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.madassignment.okuable.activity.MainActivity
@@ -111,6 +112,10 @@ class AddEvent : AppCompatActivity() {
             val link = link.text.toString()
             // val imageLink = imageLink.text.toString()
 
+            //get user ID
+            var uid= FirebaseAuth.getInstance().currentUser?.uid
+
+
             if (!name.isEmpty() && !location.isEmpty() && !startDate.isEmpty() && !endDate.isEmpty() &&
                 !description.isEmpty() && !link.isEmpty() ){
 
@@ -129,8 +134,14 @@ class AddEvent : AppCompatActivity() {
                         startActivity(intent)
 
                         val event =
-                            Event(name, location, startDate, endDate, description, link, dlUrl)
-                        saveFireStore(name, location, startDate, endDate, description, link, dlUrl)
+                            uid?.let { it1 ->
+                                Event(name, location, startDate, endDate, description, link, dlUrl,
+                                    it1
+                                )
+                            }
+                        if (uid != null) {
+                            saveFireStore(name, location, startDate, endDate, description, link, dlUrl, uid)
+                        }
 
                     }
                 })
@@ -183,7 +194,7 @@ class AddEvent : AppCompatActivity() {
 
     }
 
-    fun saveFireStore(name: String, location: String, startDate: String, endDate: String, description: String, link: String, dlUrl: String) {
+    fun saveFireStore(name: String, location: String, startDate: String, endDate: String, description: String, link: String, dlUrl: String, uid: String) {
         val db = FirebaseFirestore.getInstance()
         val eventName: EditText = findViewById(R.id.eventName_et)
 
@@ -196,6 +207,7 @@ class AddEvent : AppCompatActivity() {
         user["link"] = link
         user["dlUrl"] = dlUrl
         user["status"] = "pending"
+        user["uid"] = uid
 
         db.collection("Event").document(name)
             .set(user)

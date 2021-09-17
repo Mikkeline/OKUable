@@ -8,5 +8,6 @@ data class Event(
     var endDate: String = "",
     var description: String = "",
     var link: String = "",
-    var dlUrl: String = ""
+    var dlUrl: String = "",
+    var uid: String =""
 )

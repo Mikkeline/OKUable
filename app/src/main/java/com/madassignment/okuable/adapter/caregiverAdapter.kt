@@ -28,11 +28,6 @@ class CaregiverAdapter(
 ) :
     RecyclerView.Adapter<CaregiverAdapter.ViewHolder>(){
 
-    private var firestore: FirebaseFirestore? = null
-    private var reference: DatabaseReference? = null
-    private var currentUserId: String? = null
-
-
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
         var pic: ImageView = itemView.findViewById(R.id.cir_pic)
@@ -47,15 +42,8 @@ class CaregiverAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
         val itemView = LayoutInflater.from(context).inflate(R.layout.caregiver_item_row, parent,false)
 
-        //firestore = FirebaseFirestore.getInstance()
-        //user = FirebaseAuth.getInstance().currentUser
-        //reference = FirebaseDatabase.getInstance().getReference("Users")
-        // currentUserId = "5bJBTRI8QHM0YH0bwVdumSqsR5H3"//carereceiver
-        //currentUserId = "KqwNtEpvjgdO8lpLfBXEcu8QdAI2" //caregiver
-
         val viewHolder = ViewHolder(itemView)
-        
-        //mAdapter?.notifyDataSetChanged()
+
         return viewHolder
     }
 
@@ -83,11 +71,10 @@ class CaregiverAdapter(
             val intent = Intent(context, CaregiverDetails::class.java)
             intent.putExtra("jobtitle", jobtitle)
             intent.putExtra("name", name)
+            intent.putExtra("uid",currentPosition.uid)
             //Toast.makeText(context,"$name + $jobtitle",Toast.LENGTH_LONG).show()
 
             context.startActivity(intent)
-
-
         }
     }
 
@@ -103,10 +90,6 @@ class CaregiverAdapter(
 
 
 }
-
-
-
-
 
 
 

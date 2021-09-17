@@ -9,6 +9,7 @@
 
 
 
+
         <TextView
             android:id="@+id/tvProfile"
             android:layout_width="wrap_content"
@@ -51,6 +52,7 @@
             android:id="@+id/tvProfilePhoneNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:fontFamily="sans-serif-medium"
             android:text="Phone Number:"
@@ -77,6 +79,7 @@
             android:id="@+id/tvProfileEmailAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
             android:fontFamily="sans-serif-medium"
             android:text="Email Address:"
@@ -103,9 +106,11 @@
 
         <EditText
             android:id="@+id/etName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:minHeight="48dp"
@@ -118,9 +123,11 @@
 
         <EditText
             android:id="@+id/etPhoneNumber"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:ems="10"
             android:inputType="phone"
             android:minHeight="48dp"
@@ -133,9 +140,11 @@
 
         <EditText
             android:id="@+id/etAddress"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:minHeight="48dp"

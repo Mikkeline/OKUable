@@ -18,4 +18,4 @@ data class Caregiver(
     var q3: String = "",
     var status: String = ""
 
-    )
+)

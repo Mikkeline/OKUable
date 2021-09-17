@@ -10,16 +10,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
-import com.google.firebase.firestore.auth.User
 import com.madassignment.okuable.R
-import com.okuable.okuable.data.Users
 import kotlinx.android.synthetic.main.activity_carereceiver_login.*
 import kotlinx.android.synthetic.main.activity_carereceiver_register.*
 
 class CarereceiverLogin : AppCompatActivity() {
 
     lateinit var mDatabase: DatabaseReference
-   // var user = FirebaseAuth.getInstance().currentUser
+    // var user = FirebaseAuth.getInstance().currentUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

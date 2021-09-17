@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -198,38 +199,41 @@ class PostJobs : AppCompatActivity() {
             val price = ("RM") + binding.etPrice.text.toString() + ("/per hour")
             val desc = binding.etDesc.text.toString()
 
+            val uid = FirebaseAuth.getInstance().uid
+
             if (!(jobtitle == null && fullname == null && skills == null && maxtime == null && mintime == null && price == null && desc == null)){
 
                 val database = Firebase.database
                 val myRef = database.getReference("Caregiver")
                 val caregiver = Caregiver(jobtitle,fullname,skills,exp,ansloc,service,mintime,maxtime,price,desc,ansq1,ansq2,ansq3,"pending")
-                myRef.child(fullname.toString()).setValue(caregiver).addOnSuccessListener {
+                myRef.child(uid.toString()).setValue(caregiver).addOnSuccessListener {
+                    val refStorage = FirebaseStorage.getInstance().reference.child("Caregiver_Image/$uid")
 
+                    refStorage.putFile(imageUrl).addOnSuccessListener(
+                        OnSuccessListener {
+                            it.storage.downloadUrl.addOnSuccessListener {
+                                val dlUrl = it.toString()
+                                myRef.child(uid.toString()).child("image").setValue(dlUrl).addOnSuccessListener {
+
+                                    myRef.child(uid.toString()).child("uid").setValue(uid.toString())
+                                    val intent = Intent(this, MainActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+
+                                }.addOnFailureListener{
+
+                                    Toast.makeText(this,"Failed, Please Try Again!",Toast.LENGTH_SHORT).show()
+
+                                }
+                            }
+                        })
 
                 }.addOnFailureListener{
 
                     Toast.makeText(this,"Failed",Toast.LENGTH_SHORT).show()
 
                 }
-                val refStorage = FirebaseStorage.getInstance().reference.child("Caregiver_Image/$fullname")
 
-                refStorage.putFile(imageUrl).addOnSuccessListener(
-                    OnSuccessListener {
-                        it.storage.downloadUrl.addOnSuccessListener {
-                            val dlUrl = it.toString()
-                            myRef.child(fullname).child("image").setValue(dlUrl).addOnSuccessListener {
-
-                                Toast.makeText(this,"Successfully Saved Jobs",Toast.LENGTH_SHORT).show()
-                                val intent = Intent(this, MainActivity::class.java)
-                                startActivity(intent)
-
-                            }.addOnFailureListener{
-
-                                Toast.makeText(this,"Failed, Please Try Again!",Toast.LENGTH_SHORT).show()
-
-                            }
-                        }
-                    })
 
             }else{
                 Toast.makeText(this,"Please Fill in all the field!",Toast.LENGTH_SHORT).show()
@@ -284,4 +288,3 @@ class PostJobs : AppCompatActivity() {
         return super.dispatchTouchEvent(ev)
     }
 }
-
