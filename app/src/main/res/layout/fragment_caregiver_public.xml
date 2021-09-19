@@ -64,6 +64,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/btn_Location"
                 app:layout_constraintVertical_bias="0.0" />
 
+
             <TextView
                 android:id="@+id/txt_AddJob"
                 android:layout_width="53dp"
@@ -78,19 +79,19 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/materialDivider"
                 app:layout_constraintEnd_toEndOf="@+id/btn_AddJob"
+                app:layout_constraintHorizontal_bias="0.571"
                 app:layout_constraintStart_toStartOf="@+id/btn_AddJob"
-                app:layout_constraintTop_toBottomOf="@+id/btn_AddJob" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_AddJob"
+                app:layout_constraintVertical_bias="0.012" />
 
             <com.google.android.material.divider.MaterialDivider
                 android:id="@+id/materialDivider"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginTop="8dp"
                 app:dividerColor="@color/grey"
                 app:dividerThickness="2dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_caregiver" />
-
+                tools:layout_editor_absoluteY="197dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/caregiver_list"
@@ -133,6 +134,29 @@
                 app:layout_constraintStart_toEndOf="@+id/btn_Location"
                 app:layout_constraintTop_toBottomOf="@+id/searchView"
                 app:srcCompat="@drawable/addjob_icon" />
+
+            <LinearLayout
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="117dp">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="0dp"
+                    android:text="Button" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Button" />
+            </LinearLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

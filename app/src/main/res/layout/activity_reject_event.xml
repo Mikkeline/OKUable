@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.EventFragment_Organiser">
+        tools:context=".activity.RejectEvent">
 
         <EditText
             android:id="@+id/et_Search"
@@ -37,6 +37,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_Search" />
+
+        <Button
+            android:id="@+id/viewReject"
+            android:layout_width="74dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="8dp"
+            android:text="Rejected"
+            app:layout_constraintEnd_toStartOf="@+id/txt_event"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_Search" />
+
 
         <TextView
             android:id="@+id/txt_AddEvent"
@@ -104,16 +115,6 @@
             app:layout_constraintTop_toBottomOf="@+id/et_Search"
             app:srcCompat="@drawable/addevent" />
 
-        <Button
-            android:id="@+id/viewReject"
-            android:layout_width="75dp"
-            android:layout_height="38dp"
-            android:layout_marginTop="10dp"
-            android:text="Rejected"
-            android:textSize="10sp"
-            app:layout_constraintEnd_toStartOf="@+id/txt_event"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_Search" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

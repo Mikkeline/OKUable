@@ -15,7 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".activity.DeleteCaregiverJob"></activity>
+        <activity
+            android:name=".activity.RejectEvent"
+            android:exported="true" />
+        <activity android:name=".activity.DeleteCaregiverJob" />
         <activity android:name=".activity.Profile" />
         <activity
             android:name=".activity.CarereceiverLogin"
@@ -46,9 +49,17 @@
         <activity
             android:name=".activity.MainActivity"
             android:exported="true" />
+
         <activity android:name=".activity.Comments" />
         <activity android:name=".activity.EventDetails" />
         <activity android:name=".activity.AddEvent" />
+        <activity android:name=".activity.AdminEventDetails" />
+        <activity android:name=".activity.Reason" />
+        <activity android:name=".activity.AdminCaregiverDetails"
+            android:exported="true"/>
+        <activity android:name=".activity.CaregiverReason"
+            android:exported="true"/>
+
 
         <meta-data
             android:name="preloaded_fonts"

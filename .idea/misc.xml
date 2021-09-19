@@ -19,6 +19,26 @@
         <entry key="..\:/Users/homep/okuable/app/src/main/res/menu/bottomnav.xml" value="0.3203125" />
         <entry key="..\:/Users/homep/okuable/app/src/main/res/menu/menu.xml" value="0.3203125" />
         <entry key="..\:/Users/homep/okuable/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25462962962962965" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/activity_admin_caregiver_details.xml" value="0.25" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/activity_admin_event_details.xml" value="0.264" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/activity_admin_reject_event.xml" value="0.23645833333333333" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/activity_caregiver_details.xml" value="0.25" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/activity_comments.xml" value="0.25" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/activity_delete_caregiver_job.xml" value="0.25" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/activity_reason.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/activity_reject_event.xml" value="0.24375" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/caregiver_item_admin.xml" value="0.264" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/caregiver_reason.xml" value="0.23541666666666666" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/event_item_admin.xml" value="0.264" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/event_reject_admin.xml" value="0.23645833333333333" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/fragment_caregiver__admin.xml" value="0.22" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/fragment_caregiver_public.xml" value="0.264" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/fragment_caregiver_user.xml" value="0.2046875" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/fragment_event.xml" value="0.23541666666666666" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/fragment_event__admin.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/fragment_event__organiser.xml" value="0.23541666666666666" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/Users/min_h/AndroidStudioProjects/okuable/app/src/main/res/layout/fragment_reject_event.xml" value="0.23541666666666666" />
       </map>
     </option>
   </component>

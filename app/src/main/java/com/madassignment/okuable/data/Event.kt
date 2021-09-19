@@ -9,5 +9,8 @@ data class Event(
     var description: String = "",
     var link: String = "",
     var dlUrl: String = "",
-    var uid: String =""
+    var uid: String ="",
+    var reason: String ="",
+    var status: String =""
+
 )

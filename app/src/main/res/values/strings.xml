@@ -40,4 +40,7 @@
     <string name="q3">q3</string>
     <string name="q2">q2</string>
     <string name="q1">q1</string>
+    <string name="Reject">Reject</string>
+    <string name="Approve">Approve</string>
+    <string name="reason">Reason:</string>
 </resources>

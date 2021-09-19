@@ -12,12 +12,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.*
 import com.madassignment.okuable.R
 import com.madassignment.okuable.activity.AddEvent
+import com.madassignment.okuable.adapter.adminEvent
 import com.madassignment.okuable.adapter.eventAdapter
 import com.madassignment.okuable.data.Event
-import com.madassignment.okuable.databinding.FragmentCaregiverPublicBinding
 import com.madassignment.okuable.databinding.FragmentEventOrganiserBinding
 import java.util.*
 
@@ -92,6 +94,36 @@ class EventFragment_Organiser : Fragment() {
             val intent = Intent(context, AddEvent::class.java)
             startActivity(intent)
         }
+
+        binding.viewReject.setOnClickListener {
+
+            val uidref= FirebaseAuth.getInstance().currentUser?.uid
+            appContext = requireContext()
+            var rvEvents: RecyclerView = binding.eventList
+            eventList = ArrayList()
+
+
+            //mAdapter.notifyDataSetChanged()
+            rvEvents.layoutManager = LinearLayoutManager(parentFragment?.context, LinearLayoutManager.VERTICAL, false)
+            rvEvents.setHasFixedSize(true)
+            rvEvents.invalidate()
+
+            val db = FirebaseFirestore.getInstance()
+            db.collection("Event").get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        if(document.get("status")!!.equals("reject") && document.get("uid")!!.equals(uidref)) {
+                            eventList.add(document.toObject(Event::class.java))
+                        }
+
+
+                    }
+                    mAdapter = eventAdapter(appContext, eventList)
+                    rvEvents.adapter = mAdapter
+
+                }
+        }
+
 
         return binding.root
     }

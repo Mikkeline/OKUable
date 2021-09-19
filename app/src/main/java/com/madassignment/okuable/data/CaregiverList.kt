@@ -8,6 +8,7 @@ data class CaregiverList(
     var desc: String = "",
     var pricerate: String = "",
     var status: String = "",
-    var uid :String = ""
+    var uid :String = "",
+    var reason :String = ""
 
 )

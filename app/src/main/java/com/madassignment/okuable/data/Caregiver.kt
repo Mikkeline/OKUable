@@ -16,6 +16,7 @@ data class Caregiver(
     var q1: String = "",
     var q2: String = "",
     var q3: String = "",
-    var status: String = ""
+    var status: String = "",
+    var reason: String = ""
 
 )
