@@ -4,20 +4,17 @@ BY Michelle Wong Shi Ping, Yen Kwan Nee, Pey Min Jia, Teng Ho Min
 
 Mobile Application Development Course Project
 
-We aim to provide the users with a user-friendly design and easy access to all the information to make their life more convenient.
-
-There are two types of users, “Care Receiver” and “Care Giver or Other”.
-All users are allowed to sign up an account, log in, manage user profile and manage user account.
+We aim to provide the users with a user-friendly design and easy access to all the information to make their life more convenient.There are two types of users, “Care Receiver” and “Care Giver or Other”.All users are allowed to sign up an account, log in, manage user profile and manage user account.
 
 Activities for Care Receiver:
-View event 
-Search event
-Post comments under the event 
+View event, 
+Search event, 
+Post comments under the event, 
 Search caregivers that are available and match with their schedule
 
 Activities for Care Giver or Other:
-Add the information about the caregivers
-Post events and activities that are going to be organised
+Add the information about the caregivers, 
+Post events and activities that are going to be organised, 
 Edit, delete and update all the information about the events or activities 
 
 
