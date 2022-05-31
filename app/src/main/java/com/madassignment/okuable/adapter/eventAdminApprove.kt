@@ -9,21 +9,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.google.firebase.firestore.FirebaseFirestore
 import com.madassignment.okuable.R
 import com.madassignment.okuable.activity.EventDetails
 import com.madassignment.okuable.data.Event
 import com.madassignment.okuable.fragment.EventFragment_Admin
 import com.madassignment.okuable.fragment.EventFragment_Organiser
 
-
-class eventAdapter (
+class eventAdminApprove (
     var context: Context,
     private var events: ArrayList<Event>
 
 
 ) :
-    RecyclerView.Adapter<eventAdapter.ViewHolder>() {
+    RecyclerView.Adapter<eventAdminApprove.ViewHolder>() {
 
 
 
@@ -60,7 +58,7 @@ class eventAdapter (
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
 
         val currentPosition = events[i]
-        val context = EventFragment_Organiser.appContext
+        val context = EventFragment_Admin.appContext
         viewHolder.eventName.text = currentPosition.name
         viewHolder.endDate.text = currentPosition.endDate
         viewHolder.startDate.text = currentPosition.startDate
@@ -90,7 +88,7 @@ class eventAdapter (
 
     }
 
-        override fun getItemCount(): Int {
+    override fun getItemCount(): Int {
         return events.size
     }
 
@@ -101,5 +99,3 @@ class eventAdapter (
 
 
 }
-
-

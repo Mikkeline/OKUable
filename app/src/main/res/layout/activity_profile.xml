@@ -5,8 +5,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-    tools:context=".activity.Profile">
-
+        tools:context=".activity.Profile">
 
 
         <TextView
@@ -15,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
             android:fontFamily="@font/spicy_rice"
-            android:text="My Profile"
+            android:text="Complete Profile"
             android:textColor="@color/BUE"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/BUE"
-    tools:context=".activity.CarereceiverRegister">
+    tools:context=".activity.Register">
 
 
 
@@ -118,7 +118,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_medium"
             android:minHeight="48dp"
-            android:text="Care Giver"
+            android:text="Care Giver or Others"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:buttonTint="@color/white" />

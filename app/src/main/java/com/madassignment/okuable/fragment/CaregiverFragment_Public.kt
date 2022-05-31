@@ -20,9 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.madassignment.okuable.R
@@ -31,6 +29,8 @@ import com.madassignment.okuable.activity.DeleteCaregiverJob
 import com.madassignment.okuable.activity.NearestCaregiver
 import com.madassignment.okuable.activity.PostJobs
 import com.madassignment.okuable.adapter.CaregiverAdapter
+import com.madassignment.okuable.adapter.jobRejectAdapter
+import com.madassignment.okuable.adapter.jobpublic
 import com.madassignment.okuable.data.Caregiver
 import com.madassignment.okuable.data.CaregiverList
 import com.madassignment.okuable.databinding.FragmentCaregiverPublicBinding
@@ -41,6 +41,8 @@ class CaregiverFragment_Public : Fragment() {
 
     private lateinit var cgList: ArrayList<CaregiverList>
     private var mAdapter: CaregiverAdapter? = null
+
+    private var jAdapter: jobpublic? = null
     private lateinit var binding: FragmentCaregiverPublicBinding
 
     override fun onCreateView(
@@ -229,6 +231,99 @@ class CaregiverFragment_Public : Fragment() {
                         .isEnabled = position != -1
 
                 }
+        }
+
+        binding.jobApprove.setOnClickListener {
+            val rvCaregivers: RecyclerView = binding.caregiverList
+
+            //mAdapter.notifyDataSetChanged()
+
+            val llm = LinearLayoutManager(context)
+            rvCaregivers.layoutManager = llm
+            rvCaregivers.setHasFixedSize(true)
+            rvCaregivers.invalidate()
+
+            cgList = ArrayList()
+
+            /**getData firebase*/
+
+            val myRef = database.reference.child("Caregiver")
+            //read from firebase
+            myRef.addValueEventListener(object :ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()){
+
+                        for (Snapshot in snapshot.children){
+                            //retrieve all data
+                            val caregivers = Snapshot.getValue(CaregiverList::class.java)
+
+                            val status = caregivers?.status.toString()
+                            //only display status approve
+                            if (status == "approve") {
+
+                                cgList.add(caregivers!!)
+                            }
+
+                        }
+                        mAdapter = CaregiverAdapter(appContext, cgList)
+                        rvCaregivers.adapter = mAdapter
+
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
+        }
+
+        binding.jobReject.setOnClickListener{
+            val rvCaregivers: RecyclerView = binding.caregiverList
+
+            //mAdapter.notifyDataSetChanged()
+
+            val llm = LinearLayoutManager(context)
+            rvCaregivers.layoutManager = llm
+            rvCaregivers.setHasFixedSize(true)
+            rvCaregivers.invalidate()
+
+            cgList = ArrayList()
+
+            /**getData firebase*/
+
+            val myRef = database.reference.child("Caregiver")
+            //read from firebase
+            myRef.addValueEventListener(object :ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()){
+
+                        for (Snapshot in snapshot.children){
+                            //retrieve all data
+                            val caregivers = Snapshot.getValue(CaregiverList::class.java)
+
+
+                            val status = caregivers?.status.toString()
+                            val uid = caregivers?.uid.toString()
+                            //val uidref = myRef.child("uid").toString()
+                            val uidref= FirebaseAuth.getInstance().currentUser?.uid.toString()
+                            //only display status and same uid reject
+                            if (status == "reject" && uid == uidref ) {
+                                cgList.add(caregivers!!)
+                            }
+
+
+
+                        }
+                        jAdapter = jobpublic(appContext, cgList)
+                        rvCaregivers.adapter = jAdapter
+
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
         }
 
 

@@ -22,14 +22,15 @@
                 android:id="@+id/searchView"
                 android:layout_width="300dp"
                 android:layout_height="39dp"
-                android:layout_marginTop="8dp"
-                android:hint="Search by Job title,Name or Price."
+                android:layout_marginTop="16dp"
                 android:background="@drawable/et_search_border"
-                android:paddingStart="5dp"
-                android:textSize="15dp"
-                android:textColor="@color/grey"
+                android:hint="Search by Job title,Name or Price."
                 android:inputType="textShortMessage"
+                android:paddingStart="5dp"
+                android:textColor="@color/grey"
+                android:textSize="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,10 +89,13 @@
                 android:id="@+id/materialDivider"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="20dp"
                 app:dividerColor="@color/grey"
                 app:dividerThickness="2dp"
+                app:layout_constraintBottom_toTopOf="@+id/caregiver_list"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="197dp" />
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/caregiver_list"
@@ -136,25 +140,33 @@
                 app:srcCompat="@drawable/addjob_icon" />
 
             <LinearLayout
+                android:id="@+id/linearLayout2"
                 android:layout_width="409dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:orientation="horizontal"
-                tools:layout_editor_absoluteX="1dp"
-                tools:layout_editor_absoluteY="117dp">
+                app:layout_constraintTop_toBottomOf="@+id/txt_caregiver"
+                tools:layout_editor_absoluteX="1dp">
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/jobApprove"
                     android:layout_width="200dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="0dp"
-                    android:text="Button" />
+                    android:backgroundTint="@color/green"
+                    android:text="@string/Approve"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/jobReject"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Button" />
+                    android:backgroundTint="@color/red"
+                    android:text="@string/Reject"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="320dp"
-        android:layout_height="372dp"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_marginLeft="1dp"
         android:layout_marginTop="10dp"
@@ -39,7 +39,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:fontFamily="@font/marcellus"
             android:text="Event Name"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -52,7 +51,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/marcellus"
             android:text="StartDate"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/event_pic"
@@ -76,7 +74,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/marcellus"
             android:text="EndDate"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/to_tv"
@@ -88,14 +85,13 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/marcellus"
             android:text="Address"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/startDate_tv"
             app:layout_constraintTop_toBottomOf="@+id/startDate_tv" />
 
         <TextView
-            android:id="@+id/userReason"
+            android:id="@+id/newReason"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#F44336"

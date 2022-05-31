@@ -16,20 +16,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".activity.RejectEvent"
-            android:exported="true" />
+            android:name=".activity.SplashScreen"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".activity.DeleteCaregiverJob" />
         <activity android:name=".activity.Profile" />
         <activity
-            android:name=".activity.CarereceiverLogin"
+            android:name=".activity.Login"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".activity.CarereceiverRegister" />
+        <activity android:name=".activity.Register" />
         <activity android:name=".activity.test" />
         <activity
             android:name=".activity.MainActivity3"

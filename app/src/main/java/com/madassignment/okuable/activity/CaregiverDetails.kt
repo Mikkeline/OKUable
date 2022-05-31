@@ -1,7 +1,12 @@
 package com.madassignment.okuable.activity
 
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
@@ -39,13 +44,13 @@ class CaregiverDetails : AppCompatActivity() {
         //retrieve data from firebase
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()){
+                if (snapshot.exists()) {
                     val caregivers = snapshot.getValue(Caregiver::class.java)
 
                     val image = snapshot.child("image").value
 
                     binding.cgSkills.text = caregivers!!.skills
-                    binding.cgExperience.text = caregivers!!.exp +" Year(s)"
+                    binding.cgExperience.text = caregivers!!.exp + " Year(s)"
                     binding.cgLocation.text = caregivers!!.location
                     binding.cgService.text = caregivers!!.service
                     binding.cgTimeMin.text = caregivers!!.mintime
@@ -61,8 +66,12 @@ class CaregiverDetails : AppCompatActivity() {
                         .into(binding.cgImage)
 
 
-                }else{
-                    Toast.makeText(this@CaregiverDetails, "Error in retrieving details, Please contact Admin. ", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(
+                        this@CaregiverDetails,
+                        "Error in retrieving details, Please contact Admin. ",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
 
@@ -71,10 +80,29 @@ class CaregiverDetails : AppCompatActivity() {
             }
         })
 
+        binding.cgEmail.setOnClickListener {
+            val email = binding.cgEmail.text
+            val mail = Intent(Intent.ACTION_SENDTO)
+            mail.data = Uri.parse("mailto:") // only email apps should handle this
+            mail.putExtra(Intent.EXTRA_EMAIL, email)
+            mail.putExtra(Intent.EXTRA_SUBJECT, "From OKUable")
+            if (mail.resolveActivity(this.packageManager) != null) {
+                startActivity(mail)
+            }
+        }
+
+        binding.cgContactNumber.setOnClickListener {
+
+            val number = binding.cgContactNumber.text
+            val call = Intent(Intent.ACTION_DIAL);
+            call.data = Uri.parse("tel:$number")
+            startActivity(call)
+        }
+
 
         myRef2.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()){
+                if (snapshot.exists()) {
 
                     val contact = snapshot.child("phoneNumber").value.toString()
                     val email = snapshot.child("email").value.toString()
@@ -82,8 +110,12 @@ class CaregiverDetails : AppCompatActivity() {
                     binding.cgContactNumber.text = contact
                     binding.cgEmail.text = email
 
-                }else{
-                    Toast.makeText(this@CaregiverDetails, "Error in retrieving contact info, Please contact Admin. ", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(
+                        this@CaregiverDetails,
+                        "Error in retrieving contact info, Please contact Admin. ",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
 
@@ -98,5 +130,5 @@ class CaregiverDetails : AppCompatActivity() {
 
 
     }
-}
 
+}

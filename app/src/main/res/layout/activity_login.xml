@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/BUE"
-    tools:context=".activity.CarereceiverLogin">
+    tools:context=".activity.Login">
 
     <Button
         android:id="@+id/btnRegister_receiver"
@@ -73,5 +73,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvForget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Forget Password?"
+        android:textColor="@color/cg_btnsubmit"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBackreg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

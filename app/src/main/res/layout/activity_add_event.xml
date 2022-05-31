@@ -5,32 +5,32 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-    tools:context=".activity.AddEvent">
+        tools:context=".activity.AddEvent">
 
 
-    <ImageView
-        android:id="@+id/navbar"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="#60E2FF"
-        android:foregroundGravity="center"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/transparent_logo" />
+        <ImageView
+            android:id="@+id/navbar"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="#60E2FF"
+            android:foregroundGravity="center"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/transparent_logo" />
 
-    <ImageButton
-        android:id="@+id/cg_btnBack"
-        android:layout_width="45dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="?attr/selectableItemBackground"
-        android:src="?attr/actionModeCloseDrawable"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageButton
+            android:id="@+id/cg_btnBack"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:src="?attr/actionModeCloseDrawable"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -45,29 +45,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_addEvent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:text="Add Event"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-       />
+                <TextView
+                    android:id="@+id/tv_addEvent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:text="Add Event"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.466"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
 
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:text="Event Name: "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_addEvent" />
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
+                    android:text="Event Name: "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_addEvent" />
 
                 <EditText
                     android:id="@+id/eventName_et"
@@ -82,15 +82,15 @@
                     app:layout_constraintStart_toEndOf="@+id/tvName"
                     app:layout_constraintTop_toTopOf="@+id/tvName" />
 
-    <TextView
-        android:id="@+id/tvLocation"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="100dp"
-        android:text="Event Location: "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+                <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="100dp"
+                    android:text="Event Location: "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDate" />
 
                 <EditText
                     android:id="@+id/location_et"
@@ -111,7 +111,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="80dp"
                     android:layout_marginTop="32dp"
-
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/cg_btnsubmit"
                     android:text="Done"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cg_AddImage" />
@@ -128,15 +129,15 @@
                     app:layout_constraintStart_toEndOf="@+id/tvDescription"
                     app:layout_constraintTop_toTopOf="@+id/tvDescription" />
 
-    <TextView
-        android:id="@+id/tvDate"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:text="Date: "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Date: "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
                 <TextView
                     android:id="@+id/tvDescription"
@@ -230,12 +231,14 @@
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="80dp"
                     android:text="Cancel"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/grey"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cg_AddImage" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    </layout>
+</layout>

@@ -12,7 +12,6 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.madassignment.okuable.R
-import com.madassignment.okuable.databinding.ActivityCommentsBinding
 import com.madassignment.okuable.databinding.ActivityProfileBinding
 
 
@@ -61,12 +60,15 @@ class Profile : AppCompatActivity() {
             val address = binding.etAddress.text.toString()
 
 
-            if (!(name == null && phoneNum == null && address == null )) {
+            if (name != "" && phoneNum != "" && address != "" ) {
 
                 mDatabase.child(uid).child("name").setValue(name)
                 mDatabase.child(uid).child("phoneNumber").setValue(phoneNum)
                 mDatabase.child(uid).child("address").setValue(address)
 
+                val intent = Intent(this, Login::class.java)
+                startActivity(intent)
+                Toast.makeText(this, "Profile completed. Please login again!", Toast.LENGTH_LONG).show()
 
 
                 val refStorage = FirebaseStorage.getInstance().reference.child("Profile_Image/$uid")
@@ -77,9 +79,9 @@ class Profile : AppCompatActivity() {
                             val dlUrl = it.toString()
                             mDatabase.child(uid).child("image").setValue(dlUrl).addOnSuccessListener {
 
-                                val intent = Intent(this, CarereceiverLogin::class.java)
+                                /*val intent = Intent(this, Login::class.java)
                                 startActivity(intent)
-                                Toast.makeText(this, "Profile completed. Please login again!", Toast.LENGTH_LONG).show()
+                                Toast.makeText(this, "Profile completed. Please login again!", Toast.LENGTH_LONG).show()*/
 
                             }.addOnFailureListener{
 

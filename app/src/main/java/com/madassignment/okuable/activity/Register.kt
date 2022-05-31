@@ -5,28 +5,24 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_carereceiver_register.*
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_register.*
 import com.madassignment.okuable.R
-import android.content.ContentValues.TAG
 import android.text.TextUtils
 import android.widget.*
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.madassignment.okuable.fragment.*
 
-class CarereceiverRegister : AppCompatActivity() {
+class Register : AppCompatActivity() {
     val mAuth = FirebaseAuth.getInstance()
     lateinit var mDatabase : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_carereceiver_register)
+        setContentView(R.layout.activity_register)
 
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Users")
@@ -35,7 +31,7 @@ class CarereceiverRegister : AppCompatActivity() {
         haveAccount.setOnClickListener() {
             Log.d("CarereceiverRegister", "Try to show login activity")
 
-            val intent = Intent(this, CarereceiverLogin::class.java)
+            val intent = Intent(this, Login::class.java)
             startActivity(intent)
 
         }
@@ -47,7 +43,7 @@ class CarereceiverRegister : AppCompatActivity() {
                 TextUtils.isEmpty(
                     email_edittext_receiver_reg.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
-                        this@CarereceiverRegister,
+                        this@Register,
                         "Please enter email.",
                         Toast.LENGTH_SHORT
                     ).show()
@@ -56,7 +52,7 @@ class CarereceiverRegister : AppCompatActivity() {
                 TextUtils.isEmpty(
                     password_edittext_receiver_reg.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
-                        this@CarereceiverRegister,
+                        this@Register,
                         "Please enter password.",
                         Toast.LENGTH_SHORT
                     ).show()
@@ -64,7 +60,7 @@ class CarereceiverRegister : AppCompatActivity() {
                 TextUtils.isEmpty(
                     username_edittext_receiver_reg.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
-                        this@CarereceiverRegister,
+                        this@Register,
                         "Please enter username.",
                         Toast.LENGTH_SHORT
                     ).show()
@@ -117,7 +113,7 @@ class CarereceiverRegister : AppCompatActivity() {
 
 
                                     Toast.makeText(
-                                        this@CarereceiverRegister,
+                                        this@Register,
                                         "You are registered successfully!",
                                         Toast.LENGTH_SHORT
                                     ).show()
@@ -161,7 +157,7 @@ class CarereceiverRegister : AppCompatActivity() {
 
                                 } else {
                                     Toast.makeText(
-                                        this@CarereceiverRegister,
+                                        this@Register,
                                         task.exception!!.message.toString(),
                                         Toast.LENGTH_SHORT
                                     ).show()

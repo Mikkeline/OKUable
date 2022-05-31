@@ -1,11 +1,8 @@
 package com.madassignment.okuable.activity
 
-import android.content.ContentValues
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
@@ -14,9 +11,6 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.madassignment.okuable.R
@@ -92,7 +86,7 @@ class MainActivity3 : AppCompatActivity() {
                         "Good Bye Admin!",
                         Toast.LENGTH_SHORT
                     ).show()
-                    val intent = Intent(this, CarereceiverLogin::class.java)
+                    val intent = Intent(this, Login::class.java)
                     startActivity(intent)
                     finish()
                 }

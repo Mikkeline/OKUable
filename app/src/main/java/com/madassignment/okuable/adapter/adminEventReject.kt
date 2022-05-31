@@ -1,7 +1,6 @@
 package com.madassignment.okuable.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,39 +8,35 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.google.firebase.firestore.FirebaseFirestore
 import com.madassignment.okuable.R
-import com.madassignment.okuable.activity.EventDetails
 import com.madassignment.okuable.data.Event
 import com.madassignment.okuable.fragment.EventFragment_Admin
 import com.madassignment.okuable.fragment.EventFragment_Organiser
 
-
-class eventAdapter (
+class adminEventReject (
     var context: Context,
     private var events: ArrayList<Event>
 
-
 ) :
-    RecyclerView.Adapter<eventAdapter.ViewHolder>() {
+
+    RecyclerView.Adapter<adminEventReject.ViewHolder>() {
 
 
-
-
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var eventPic: ImageView = itemView.findViewById(R.id.event_pic)
         var eventName: TextView = itemView.findViewById(R.id.eventName_tv)
         var startDate: TextView = itemView.findViewById(R.id.startDate_tv)
         var endDate: TextView = itemView.findViewById(R.id.endDate_tv)
         var address: TextView = itemView.findViewById(R.id.address_tv)
-
+        var reason: TextView = itemView.findViewById(R.id.newReason)
 
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
-        val itemView = LayoutInflater.from(context).inflate(R.layout.event_item_row, parent,false)
+        val itemView = LayoutInflater.from(context).inflate(R.layout.event_item_admin, parent, false)
+
 
         //user = FirebaseAuth.getInstance().currentUser
         //reference = FirebaseDatabase.getInstance().getReference("Users")
@@ -54,25 +49,21 @@ class eventAdapter (
         return viewHolder
     }
 
-
-
-
-    override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
+    override fun onBindViewHolder(viewHolder: adminEventReject.ViewHolder, i: Int) {
 
         val currentPosition = events[i]
-        val context = EventFragment_Organiser.appContext
+        val context = EventFragment_Admin.appContext
         viewHolder.eventName.text = currentPosition.name
         viewHolder.endDate.text = currentPosition.endDate
         viewHolder.startDate.text = currentPosition.startDate
         viewHolder.address.text = currentPosition.location
+        viewHolder.reason.text = currentPosition.reason
+
 
 
         Glide.with(context)
             .load(currentPosition.dlUrl)
             .into(viewHolder.eventPic)
-
-
-
 
         //onclicklistener when user click on recycleview
         viewHolder.itemView.setOnClickListener {
@@ -80,9 +71,9 @@ class eventAdapter (
 
 
             //pass the eventName to eventDetails class
-            val intent = Intent(context, EventDetails::class.java)
-            intent.putExtra("EventName", eventName)
-            context.startActivity(intent)
+            // val intent = Intent(context, AdminEventDetails::class.java)
+            //intent.putExtra("EventName", eventName)
+            //context.startActivity(intent)
 
 
         }
@@ -90,7 +81,8 @@ class eventAdapter (
 
     }
 
-        override fun getItemCount(): Int {
+
+    override fun getItemCount(): Int {
         return events.size
     }
 
@@ -101,5 +93,3 @@ class eventAdapter (
 
 
 }
-
-

@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -74,21 +73,10 @@ class ProfileFragment : Fragment() {
         }
 
 
-        /*binding.profileImage.setOnClickListener {
-            ChangeImage()
-        }*/
-
-
-
-
-
-
-
         binding.btnSave.setOnClickListener {
             val name = binding.etName.text.toString()
             val phoneNum = binding.etPhoneNumber.text.toString()
             val address = binding.etAddress.text.toString()
-
 
             mDatabase.child(uid).child("name").setValue(name)
             mDatabase.child(uid).child("phoneNumber").setValue(phoneNum)
@@ -96,51 +84,7 @@ class ProfileFragment : Fragment() {
 
             Toast.makeText(requireActivity(), "Profile updated successfully！", Toast.LENGTH_LONG)
                 .show()
-
-            refStorage.delete()
-
-            refStorage.putFile(imageUrl).addOnSuccessListener(
-                OnSuccessListener {
-                    it.storage.downloadUrl.addOnSuccessListener {
-                        val dlUrl = it.toString()
-                        mDatabase.child(uid).child("image").setValue(dlUrl).addOnSuccessListener {
-
-
-                        }.addOnFailureListener {
-
-                            Toast.makeText(
-                                requireActivity(),
-                                "Failed, Please Try Again!",
-                                Toast.LENGTH_SHORT
-                            ).show()
-
-                        }
-                    }
-                })
-
-
         }
-
-
-
         return binding.root
     }
-
-    /*private fun ChangeImage() {
-        val intent = Intent()
-        intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1)
-    }
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 1 && resultCode == AppCompatActivity.RESULT_OK && data != null && data.data != null) {
-            imageUrl = data.data!!
-            with(binding) { profile_image.setImageURI(imageUrl) }
-        }
-    }*/
-
-
-     */
 }
-

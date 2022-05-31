@@ -43,4 +43,7 @@
     <string name="Reject">Reject</string>
     <string name="Approve">Approve</string>
     <string name="reason">Reason:</string>
+    <string name="pending">Pending</string>
+    <string name="contactnumber"><u>ContactNumber</u></string>
+    <string name="email"><u>Email</u></string>
 </resources>

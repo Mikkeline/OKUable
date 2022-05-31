@@ -13,7 +13,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import com.google.rpc.context.AttributeContext
 import com.madassignment.okuable.R
 import com.madassignment.okuable.fragment.*
 
@@ -87,7 +86,7 @@ class MainActivity : AppCompatActivity() {
                         "Good Bye Care Giver!",
                         Toast.LENGTH_SHORT
                     ).show()
-                    val intent = Intent(this, CarereceiverLogin::class.java)
+                    val intent = Intent(this, Login::class.java)
                     startActivity(intent)
                     finish()
                 }

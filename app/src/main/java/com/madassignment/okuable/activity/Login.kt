@@ -3,6 +3,7 @@ package com.madassignment.okuable.activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Patterns
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -11,26 +12,52 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.madassignment.okuable.R
-import kotlinx.android.synthetic.main.activity_carereceiver_login.*
-import kotlinx.android.synthetic.main.activity_carereceiver_register.*
+import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_register.*
 
-class CarereceiverLogin : AppCompatActivity() {
+class Login : AppCompatActivity() {
 
     lateinit var mDatabase: DatabaseReference
-    // var user = FirebaseAuth.getInstance().currentUser
+    lateinit var auth: FirebaseAuth
+    //var user = FirebaseAuth.getInstance().currentUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_carereceiver_login)
+        setContentView(R.layout.activity_login)
+
+        auth = FirebaseAuth.getInstance()
+
 
 
 
         val backRegister: TextView = findViewById(R.id.tvBackreg)
         backRegister.setOnClickListener() {
 
-            val intent = Intent(this, CarereceiverRegister::class.java)
+            val intent = Intent(this, Register::class.java)
             startActivity(intent)
 
+        }
+
+        val forgetPassword: TextView = findViewById(R.id.tvForget)
+        forgetPassword.setOnClickListener(){
+            if (email_edittext_receiver_login.text.toString().isEmpty()){
+                email_edittext_receiver_login.error = "Please enter email."
+                email_edittext_receiver_login.requestFocus()
+                return@setOnClickListener
+            }
+            if (!Patterns.EMAIL_ADDRESS.matcher(email_edittext_receiver_login.text.toString()).matches()){
+                email_edittext_receiver_login.error = "Please enter a valid email."
+                email_edittext_receiver_login.requestFocus()
+                return@setOnClickListener
+            }
+
+            auth.sendPasswordResetEmail(email_edittext_receiver_login.text.toString()).addOnCompleteListener{
+                    task ->
+                if (task.isSuccessful){
+                    Toast.makeText(this, "Email is sent!", Toast.LENGTH_SHORT).show()
+                }
+
+            }
         }
 
         val loginButton: Button = findViewById(R.id.btnRegister_receiver)
@@ -40,7 +67,7 @@ class CarereceiverLogin : AppCompatActivity() {
                 TextUtils.isEmpty(
                     email_edittext_receiver_login.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
-                        this@CarereceiverLogin,
+                        this@Login,
                         "Please enter email.",
                         Toast.LENGTH_SHORT
                     ).show()
@@ -49,7 +76,7 @@ class CarereceiverLogin : AppCompatActivity() {
                 TextUtils.isEmpty(
                     password_edittext_receiver_login.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
-                        this@CarereceiverLogin,
+                        this@Login,
                         "Please enter password.",
                         Toast.LENGTH_SHORT
                     ).show()
@@ -77,12 +104,12 @@ class CarereceiverLogin : AppCompatActivity() {
 
                                     if (userType == "Care Receiver") {
                                         Toast.makeText(
-                                            this@CarereceiverLogin,
+                                            this@Login,
                                             "You are logging as Care Receiver!",
                                             Toast.LENGTH_SHORT
                                         ).show()
                                         val intent = Intent(
-                                            this@CarereceiverLogin,
+                                            this@Login,
                                             MainActivity2::class.java
                                         )
                                         intent.flags =
@@ -92,12 +119,12 @@ class CarereceiverLogin : AppCompatActivity() {
                                         startActivity(intent)
                                     } else if (userType == "Care Giver") {
                                         Toast.makeText(
-                                            this@CarereceiverLogin,
-                                            "You are logging as Care Giver!",
+                                            this@Login,
+                                            "You are logging as Care Giver or Others!",
                                             Toast.LENGTH_SHORT
                                         ).show()
                                         val intent = Intent(
-                                            this@CarereceiverLogin,
+                                            this@Login,
                                             MainActivity::class.java
                                         )
                                         intent.flags =
@@ -107,12 +134,12 @@ class CarereceiverLogin : AppCompatActivity() {
                                         startActivity(intent)
                                     } else if (userType == "Admin") {
                                         Toast.makeText(
-                                            this@CarereceiverLogin,
+                                            this@Login,
                                             "You are logging in as Admin!",
                                             Toast.LENGTH_SHORT
                                         ).show()
                                         val intent = Intent(
-                                            this@CarereceiverLogin,
+                                            this@Login,
                                             MainActivity3::class.java
                                         )
                                         intent.flags =
@@ -124,7 +151,7 @@ class CarereceiverLogin : AppCompatActivity() {
                                 }
                             } else {
                                 Toast.makeText(
-                                    this@CarereceiverLogin,
+                                    this@Login,
                                     task.exception!!.message.toString(),
                                     Toast.LENGTH_SHORT
                                 ).show()
@@ -135,4 +162,3 @@ class CarereceiverLogin : AppCompatActivity() {
         }
     }
 }
-

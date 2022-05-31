@@ -405,8 +405,8 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/marcellus"
-                android:text="@string/contactnumber"
-                android:textColor="@color/blue_link"
+                android:text="ContactNumber"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/cg_tvContactNumber"
                 app:layout_constraintTop_toBottomOf="@+id/cg_tvContact" />
@@ -418,8 +418,8 @@
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/marcellus"
-                android:textColor="@color/blue_link"
-                android:text="@string/email"
+                android:text="Email"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/cg_tvEmail"
                 app:layout_constraintTop_toBottomOf="@+id/cg_ContactNumber" />
@@ -494,12 +494,30 @@
                 app:layout_constraintStart_toEndOf="@+id/cg_Time2"
                 app:layout_constraintTop_toBottomOf="@+id/cg_Time" />
 
+            <Button
+                android:id="@+id/btnApprove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/green"
+                android:text="@string/Approve"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/cg_Email"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cg_tvEmail" />
+
+            <Button
+                android:id="@+id/btnReject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/red"
+                android:text="@string/Reject"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnApprove"
+                app:layout_constraintTop_toBottomOf="@+id/cg_Email" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>
-
-
-
-
-
-

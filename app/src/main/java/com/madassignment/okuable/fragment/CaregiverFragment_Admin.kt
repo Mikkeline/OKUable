@@ -19,8 +19,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.madassignment.okuable.R
-import com.madassignment.okuable.adapter.CaregiverAdapter
-import com.madassignment.okuable.adapter.adminCaregiver
+import com.madassignment.okuable.adapter.*
 import com.madassignment.okuable.data.CaregiverList
 import com.madassignment.okuable.databinding.FragmentCaregiverAdminBinding
 import java.util.ArrayList
@@ -29,14 +28,16 @@ import java.util.*
 class CaregiverFragment_Admin : Fragment() {
     private lateinit var cgList: ArrayList<CaregiverList>
     private var mAdapter: adminCaregiver? = null
+    private var aAdapter: approveJobAdapter? = null
+    private var jAdapter: jobRejectAdapter? = null
 
+    private lateinit var binding: FragmentCaregiverAdminBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val binding: FragmentCaregiverAdminBinding = DataBindingUtil.inflate(inflater ,R.layout.fragment_caregiver__admin, container, false)
-
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_caregiver__admin, container, false)
         appContext = requireContext()
 
         val rvCaregivers: RecyclerView = binding.caregiverList
@@ -90,6 +91,130 @@ class CaregiverFragment_Admin : Fragment() {
                 filter(editable.toString().lowercase())
             }
         })
+
+        binding.adminJobApprove.setOnClickListener {
+            appContext = requireContext()
+
+            val rvCaregivers: RecyclerView = binding.caregiverList
+
+            cgList = ArrayList()
+            //mAdapter.notifyDataSetChanged()
+            val llm = LinearLayoutManager(context)
+            rvCaregivers.layoutManager = llm
+            rvCaregivers.setHasFixedSize(true)
+            rvCaregivers.invalidate()
+
+            /**getData firebase*/
+            val database = Firebase.database
+            val myRef = database.reference.child("Caregiver")
+
+
+            myRef.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()){
+                        for (Snapshot in snapshot.children){
+                            val caregivers = Snapshot.getValue(CaregiverList::class.java)
+
+                            val status = caregivers?.status.toString()
+
+                            if (status == "approve") {
+                                cgList.add(caregivers!!)
+                            }
+                        }
+                        aAdapter = approveJobAdapter(appContext, cgList)
+                        rvCaregivers.adapter = aAdapter
+
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
+        }
+
+        binding.btnPending.setOnClickListener {
+            appContext = requireContext()
+
+            val rvCaregivers: RecyclerView = binding.caregiverList
+
+            cgList = ArrayList()
+            //mAdapter.notifyDataSetChanged()
+            val llm = LinearLayoutManager(context)
+            rvCaregivers.layoutManager = llm
+            rvCaregivers.setHasFixedSize(true)
+            rvCaregivers.invalidate()
+
+            /**getData firebase*/
+            val database = Firebase.database
+            val myRef = database.reference.child("Caregiver")
+
+
+            myRef.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()){
+                        for (Snapshot in snapshot.children){
+                            val caregivers = Snapshot.getValue(CaregiverList::class.java)
+
+                            val status = caregivers?.status.toString()
+
+                            if (status == "pending") {
+                                cgList.add(caregivers!!)
+                            }
+                        }
+                        mAdapter = adminCaregiver(appContext, cgList)
+                        rvCaregivers.adapter = mAdapter
+
+
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
+        }
+
+        binding.btnRejectAdmin.setOnClickListener {
+            appContext = requireContext()
+
+            val rvCaregivers: RecyclerView = binding.caregiverList
+
+            cgList = ArrayList()
+            //mAdapter.notifyDataSetChanged()
+            val llm = LinearLayoutManager(context)
+            rvCaregivers.layoutManager = llm
+            rvCaregivers.setHasFixedSize(true)
+            rvCaregivers.invalidate()
+
+            /**getData firebase*/
+            val database = Firebase.database
+            val myRef = database.reference.child("Caregiver")
+
+
+            myRef.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()){
+                        for (Snapshot in snapshot.children){
+                            val caregivers = Snapshot.getValue(CaregiverList::class.java)
+
+                            val status = caregivers?.status.toString()
+
+                            if (status == "reject") {
+                                cgList.add(caregivers!!)
+                            }
+                        }
+                        jAdapter = jobRejectAdapter(appContext, cgList)
+                        rvCaregivers.adapter = jAdapter
+
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
+        }
 
 
         return binding.root

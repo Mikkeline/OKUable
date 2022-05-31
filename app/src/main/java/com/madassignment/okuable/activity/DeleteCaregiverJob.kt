@@ -108,6 +108,7 @@ class DeleteCaregiverJob : AppCompatActivity() {
                 "Yes to Delete record, \nNo to keep the record. ",
                 DialogInterface.OnClickListener { dialog, id ->
                     myRef.child("status").setValue("Delete").addOnSuccessListener {
+                        myRef.removeValue()
                         Toast.makeText(this, "Jobs Record has been deleted, please contact Admin if you have any inquiry. ", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
@@ -136,3 +137,4 @@ class DeleteCaregiverJob : AppCompatActivity() {
         alert.show()
     }
 }
+

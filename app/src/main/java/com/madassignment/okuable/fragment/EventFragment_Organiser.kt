@@ -13,12 +13,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.*
 import com.madassignment.okuable.R
 import com.madassignment.okuable.activity.AddEvent
-import com.madassignment.okuable.adapter.adminEvent
 import com.madassignment.okuable.adapter.eventAdapter
+import com.madassignment.okuable.adapter.rejectEventUser
 import com.madassignment.okuable.data.Event
 import com.madassignment.okuable.databinding.FragmentEventOrganiserBinding
 import java.util.*
@@ -28,6 +27,7 @@ class EventFragment_Organiser : Fragment() {
 
     private lateinit var eventList: ArrayList<Event>
     private var mAdapter: eventAdapter? = null
+    private var aAdapter: rejectEventUser? = null
     private lateinit var binding: FragmentEventOrganiserBinding
 
 
@@ -42,36 +42,7 @@ class EventFragment_Organiser : Fragment() {
             R.layout.fragment_event__organiser, container, false
         )
 
-
-
-       appContext = requireContext()
-
-        var rvEvents: RecyclerView = binding.eventList
-
-        eventList = ArrayList()
-
-
-        //mAdapter.notifyDataSetChanged()
-        rvEvents.layoutManager = LinearLayoutManager(parentFragment?.context, LinearLayoutManager.VERTICAL, false)
-        rvEvents.setHasFixedSize(true)
-        rvEvents.invalidate()
-
-        //getData from firestore
-        val db = FirebaseFirestore.getInstance()
-        db.collection("Event").get()
-            .addOnSuccessListener { documents ->
-                for (document in documents) {
-                    if(document.get("status")!!.equals("approved")) {
-                        eventList.add(document.toObject(Event::class.java))
-                    }
-
-
-                }
-                mAdapter = eventAdapter(appContext, eventList)
-                rvEvents.adapter = mAdapter
-
-            }
-
+        display()
 
 
         binding.etSearch.addTextChangedListener(object : TextWatcher {
@@ -86,7 +57,6 @@ class EventFragment_Organiser : Fragment() {
                 filter(editable.toString().lowercase())
             }
         })
-
 
 
 
@@ -118,14 +88,47 @@ class EventFragment_Organiser : Fragment() {
 
 
                     }
-                    mAdapter = eventAdapter(appContext, eventList)
-                    rvEvents.adapter = mAdapter
+                    aAdapter = rejectEventUser(appContext, eventList)
+                    rvEvents.adapter = aAdapter
 
                 }
         }
 
+        binding.viewApprove.setOnClickListener{
+            display()
+        }
+
 
         return binding.root
+    }
+
+
+    private fun display() {
+        appContext = requireContext()
+
+        var rvEvents: RecyclerView = binding.eventList
+
+        eventList = ArrayList()
+        //mAdapter.notifyDataSetChanged()
+        rvEvents.layoutManager = LinearLayoutManager(parentFragment?.context, LinearLayoutManager.VERTICAL, false)
+        rvEvents.setHasFixedSize(true)
+        rvEvents.invalidate()
+
+        //getData from firestore
+        val db = FirebaseFirestore.getInstance()
+        db.collection("Event").get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    if(document.get("status")!!.equals("approved")) {
+                        eventList.add(document.toObject(Event::class.java))
+                    }
+
+
+                }
+                mAdapter = eventAdapter(appContext, eventList)
+                rvEvents.adapter = mAdapter
+
+            }
     }
 
 

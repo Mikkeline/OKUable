@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.text.Editable
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -14,25 +15,52 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.bumptech.glide.Glide
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.auth.User
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.madassignment.okuable.R
 import com.madassignment.okuable.data.Caregiver
+import com.madassignment.okuable.data.Users
 import com.madassignment.okuable.databinding.ActivityPostJobsBinding
+import kotlinx.android.synthetic.main.activity_splash_screen.*
 
 
 class PostJobs : AppCompatActivity() {
 
     private lateinit var binding: ActivityPostJobsBinding
-    private lateinit var imageUrl : Uri
+    private var imageUrl : Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_post_jobs)
 
+        val uid = FirebaseAuth.getInstance().uid
+
+        val database = Firebase.database
+        val myRef = database.reference.child("Users").child(uid!!)
+
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()){
+
+                    val cgname = snapshot.child("name").value
+                    binding.etFullName.text = Editable.Factory.getInstance().newEditable(cgname.toString())
+
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
 
         var btnBack  = binding.cgBtnBack
         btnBack.setOnClickListener{
@@ -201,43 +229,49 @@ class PostJobs : AppCompatActivity() {
 
             val uid = FirebaseAuth.getInstance().uid
 
-            if (!(jobtitle == null && fullname == null && skills == null && maxtime == null && mintime == null && price == null && desc == null)){
+            if (imageUrl != null) {
+                if (jobtitle != "" && fullname != "" && skills != "" && maxtime != "" && mintime != "" && price != "" && desc != ""){
 
-                val database = Firebase.database
-                val myRef = database.getReference("Caregiver")
-                val caregiver = Caregiver(jobtitle,fullname,skills,exp,ansloc,service,mintime,maxtime,price,desc,ansq1,ansq2,ansq3,"pending")
-                myRef.child(uid.toString()).setValue(caregiver).addOnSuccessListener {
-                    val refStorage = FirebaseStorage.getInstance().reference.child("Caregiver_Image/$uid")
+                    val database = Firebase.database
+                    val myRef = database.getReference("Caregiver")
+                    val caregiver = Caregiver(jobtitle,fullname,skills,exp,ansloc,service,mintime,maxtime,price,desc,ansq1,ansq2,ansq3,"pending")
+                    myRef.child(uid.toString()).setValue(caregiver).addOnSuccessListener {
+                        val refStorage = FirebaseStorage.getInstance().reference.child("Caregiver_Image/$uid")
 
-                    refStorage.putFile(imageUrl).addOnSuccessListener(
-                        OnSuccessListener {
-                            it.storage.downloadUrl.addOnSuccessListener {
-                                val dlUrl = it.toString()
-                                myRef.child(uid.toString()).child("image").setValue(dlUrl).addOnSuccessListener {
+                        refStorage.putFile(imageUrl!!).addOnSuccessListener(
+                            OnSuccessListener {
+                                it.storage.downloadUrl.addOnSuccessListener {
+                                    val dlUrl = it.toString()
+                                    myRef.child(uid.toString()).child("image").setValue(dlUrl).addOnSuccessListener {
 
-                                    myRef.child(uid.toString()).child("uid").setValue(uid.toString())
-                                    val intent = Intent(this, MainActivity::class.java)
-                                    startActivity(intent)
-                                    finish()
+                                        myRef.child(uid.toString()).child("uid").setValue(uid.toString())
+                                        val intent = Intent(this, MainActivity::class.java)
+                                        startActivity(intent)
+                                        finish()
 
-                                }.addOnFailureListener{
+                                    }.addOnFailureListener{
 
-                                    Toast.makeText(this,"Failed, Please Try Again!",Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(this,"Failed, Please Try Again!",Toast.LENGTH_SHORT).show()
 
+                                    }
                                 }
-                            }
-                        })
+                            })
 
-                }.addOnFailureListener{
 
-                    Toast.makeText(this,"Failed",Toast.LENGTH_SHORT).show()
+                    }.addOnFailureListener{
 
+                        Toast.makeText(this,"Failed",Toast.LENGTH_SHORT).show()
+
+                    }
+
+
+                }else{
+                    Toast.makeText(this,"Please Fill in all the field!",Toast.LENGTH_SHORT).show()
                 }
-
-
             }else{
-                Toast.makeText(this,"Please Fill in all the field!",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Picture must be added!",Toast.LENGTH_SHORT).show()
             }
+
 
         }
 

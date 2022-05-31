@@ -20,26 +20,26 @@
                 android:layout_width="300dp"
                 android:layout_height="39dp"
                 android:layout_marginTop="8dp"
-                android:hint="Search by Job title, Name or Price."
                 android:background="@drawable/et_search_border"
-                android:paddingStart="5dp"
-                android:textSize="15dp"
-                android:textColor="@color/grey"
+                android:hint="Search by Job title, Name or Price."
                 android:inputType="textShortMessage"
+                android:paddingStart="5dp"
+                android:textColor="@color/grey"
+                android:textSize="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/txt_caregiver"
-                android:layout_width="180dp"
-                android:layout_height="58dp"
-                android:layout_marginStart="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/marcellus"
                 android:text="Hire professional  local caregivers"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
@@ -48,26 +48,67 @@
                 android:id="@+id/materialDivider"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="14dp"
                 app:dividerColor="@color/grey"
                 app:dividerThickness="2dp"
+                app:layout_constraintBottom_toTopOf="@+id/caregiver_list"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_caregiver" />
-
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/caregiver_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="50dp"
+                android:layout_marginBottom="48dp"
                 android:foregroundGravity="center"
                 android:orientation="vertical"
                 app:layoutManager="LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@id/materialDivider"
-                app:layout_constraintTop_toBottomOf="@+id/materialDivider" />
+                app:layout_constraintTop_toTopOf="@+id/linearLayout4" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_caregiver">
+
+                <Button
+                    android:id="@+id/btnPending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/yellow"
+                    android:text="@string/pending"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/adminJobApprove"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/green"
+                    android:text="@string/Approve"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnRejectAdmin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/red"
+                    android:text="@string/Reject"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

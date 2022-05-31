@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="125dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/caregiver_border"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cir_desc"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/cir_pic"
+            android:fontFamily="sans-serif"
+            android:gravity="center|left"
+            android:text="Reason:"
+            android:textColor="@color/red"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/cir_desc"
+            app:layout_constraintTop_toBottomOf="@+id/txt_desc"
+            tools:fontFamily="@font/marcellus" />
+
+        <ImageView
+            android:id="@+id/cir_pic"
+            android:layout_width="87dp"
+            android:layout_height="80dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="11dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/profile_icon" />
+
+        <TextView
+            android:id="@+id/cir_pricerate"
+            android:layout_width="99dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="11dp"
+            android:fontFamily="sans-serif"
+            android:gravity="right"
+            android:text="$ per hour "
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:fontFamily="@font/slabo_13px" />
+
+        <TextView
+            android:id="@+id/cir_jobtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_toEndOf="@+id/cir_pic"
+            android:fontFamily="sans-serif"
+            android:gravity="left"
+            android:text="Job Title"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:fontFamily="@font/marcellus" />
+
+
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cir_jobtitle"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@+id/cir_pic"
+            android:fontFamily="sans-serif"
+            android:gravity="center|left"
+            android:text="Name:"
+            android:textColor="@color/grey"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cir_jobtitle"
+            tools:fontFamily="@font/marcellus" />
+
+        <TextView
+            android:id="@+id/txt_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_name"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@+id/cir_pic"
+            android:fontFamily="sans-serif"
+            android:gravity="center|left"
+            android:text="Location:"
+            android:textColor="@color/grey"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:fontFamily="@font/marcellus" />
+
+        <TextView
+            android:id="@+id/txt_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_location"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@+id/cir_pic"
+            android:fontFamily="sans-serif"
+            android:gravity="center|left"
+            android:text="Description:"
+            android:textColor="@color/grey"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_location"
+            tools:fontFamily="@font/marcellus" />
+
+        <TextView
+            android:id="@+id/cir_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cir_jobtitle"
+            android:layout_marginStart="41dp"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@+id/txt_name"
+            android:fontFamily="sans-serif"
+            android:gravity="center|left"
+            android:text="$name"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/txt_name"
+            app:layout_constraintTop_toBottomOf="@+id/cir_jobtitle"
+            tools:fontFamily="@font/marcellus" />
+
+        <TextView
+            android:id="@+id/cir_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cir_name"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@+id/txt_location"
+            android:fontFamily="sans-serif"
+            android:gravity="center|left"
+            android:text="$location"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/txt_location"
+            tools:fontFamily="@font/marcellus" />
+
+        <TextView
+            android:id="@+id/cir_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cir_location"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@+id/txt_desc"
+            android:fontFamily="sans-serif"
+            android:gravity="center|left"
+            android:text="$description"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/txt_desc"
+            app:layout_constraintTop_toBottomOf="@+id/cir_location"
+            tools:fontFamily="@font/marcellus" />
+
+        <TextView
+            android:id="@+id/cir_reason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cir_desc"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/txt_desc"
+            android:fontFamily="sans-serif"
+            android:gravity="center|left"
+            android:text="$reason"
+            android:textColor="@color/red"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/cir_desc"
+            tools:fontFamily="@font/marcellus" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
